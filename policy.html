@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシー・利用規約 - ヒナタAI</title>
+    <meta name="description" content="ヒナタAIのプライバシーポリシーおよび利用規約です。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --pink: #F4A6C0;
+            --pink-light: #F8C8D8;
+            --pink-pale: #FDE8EF;
+            --blue: #7EC8E3;
+            --blue-pale: #E3F3FA;
+            --yellow: #F5D76E;
+            --yellow-pale: #FFF8E1;
+            --bg: #FFF9F5;
+            --text: #3D3D3D;
+            --lavender: #E8D5F0;
+            --lavender-pale: #F5EEF8;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            line-height: 1.8;
+            background: var(--bg);
+        }
+
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(244, 166, 192, .2);
+            border-bottom: 3px solid var(--pink-pale);
+        }
+
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--pink)
+        }
+
+        .logo a {
+            color: var(--pink);
+            text-decoration: none
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 8px;
+            border: 2px solid var(--pink-light)
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: .88rem;
+            font-weight: 500;
+            margin-left: 22px;
+            transition: color .2s
+        }
+
+        nav a:hover {
+            color: var(--pink)
+        }
+
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 0
+        }
+
+        .back-link a {
+            color: var(--pink);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 500
+        }
+
+        .back-link a:hover {
+            text-decoration: underline
+        }
+
+        .back-link a::before {
+            content: '← '
+        }
+
+        .page-hero {
+            background: linear-gradient(160deg, var(--pink-pale) 0%, var(--lavender-pale) 100%);
+            text-align: center;
+            padding: 48px 20px;
+        }
+
+        .page-hero h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text)
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px 20px 64px
+        }
+
+        .tab-nav {
+            display: flex;
+            border-bottom: 3px solid var(--lavender);
+            margin-bottom: 32px;
+            margin-top: 20px
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 14px 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: .95rem;
+            color: var(--text);
+            opacity: .5;
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -3px;
+            transition: all .2s;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .tab-btn.active {
+            opacity: 1;
+            border-bottom-color: var(--pink)
+        }
+
+        .tab-btn:hover {
+            opacity: .8
+        }
+
+        .tab-panel {
+            display: none
+        }
+
+        .tab-panel.active {
+            display: block
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 36px 0 14px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--lavender-pale);
+            font-weight: 900;
+        }
+
+        h2:first-child {
+            margin-top: 0
+        }
+
+        h3 {
+            color: var(--pink);
+            font-size: 1.05rem;
+            margin: 22px 0 10px;
+            font-weight: 700
+        }
+
+        p,
+        li {
+            font-size: .92rem;
+            margin-bottom: 10px
+        }
+
+        ul,
+        ol {
+            padding-left: 22px;
+            margin-bottom: 16px
+        }
+
+        li {
+            margin-bottom: 6px
+        }
+
+        .date-info {
+            background: var(--lavender-pale);
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: .88rem;
+            color: var(--text);
+            opacity: .7;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+
+
+        footer {
+            background: var(--white);
+            color: var(--text);
+            text-align: center;
+            padding: 28px 20px;
+            font-size: .82rem;
+            border-top: 3px solid var(--pink-pale);
+        }
+
+        footer a {
+            color: var(--pink);
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500
+        }
+
+        footer a:hover {
+            text-decoration: underline
+        }
+
+        footer .footer-links {
+            margin-bottom: 12px
+        }
+
+        footer .copy {
+            opacity: .5
+        }
+
+        @media(max-width:600px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 10px
+            }
+
+            nav a {
+                margin-left: 12px;
+                font-size: .82rem
+            }
+
+            .page-hero h1 {
+                font-size: 1.4rem
+            }
+
+            .content {
+                padding: 16px 16px 48px
+            }
+
+            h2 {
+                font-size: 1.15rem
+            }
+
+            .tab-btn {
+                font-size: .85rem;
+                padding: 12px 8px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="character.jpg" alt="ヒナタAI">ヒナタAI
+                </a>
+            </div>
+            <nav>
+                <a href="index.html">トップ</a>
+                <a href="tokushoho.html">特商法表記</a>
+                <a href="policy.html">ポリシー・規約</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <h1>プライバシーポリシー・利用規約</h1>
+    </div>
+
+    <div class="back-link">
+        <a href="index.html">トップページに戻る</a>
+    </div>
+
+    <div class="content">
+
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="privacy">プライバシーポリシー</button>
+            <button class="tab-btn" data-tab="terms">利用規約</button>
+        </div>
+
+        <!-- ==================== Privacy Policy ==================== -->
+        <div id="privacy" class="tab-panel active">
+
+            <h2>プライバシーポリシー</h2>
+            <p>ヒナタAI（以下「当サービス」）は、お客様の個人情報の保護に細心の注意を払い、以下のとおりプライバシーポリシーを定めます。</p>
+
+            <h3>1. 収集する情報</h3>
+            <ul>
+                <li>LINEユーザーID（サービス提供のため）</li>
+                <li>決済情報（Stripeが管理。当サービスはカード番号等を保持しません。）</li>
+                <li>LINE上でのチャット内容（AIによる回答生成およびサービス改善のため）</li>
+            </ul>
+
+            <h3>2. 利用目的</h3>
+            <ul>
+                <li>AIカウンセリングサービスの提供</li>
+                <li>会員資格の管理</li>
+                <li>サービスの改善および品質向上</li>
+            </ul>
+
+            <h3>3. 第三者提供</h3>
+            <p>利用者の個人情報を、本人の同意なく第三者に提供することはありません。ただし、法令に基づく場合を除きます。</p>
+
+            <h3>4. AIチャットボットに関する取り扱い</h3>
+            <p>サービスの提供・運用保守のため、運営者がチャット内容を確認する場合があります。取得したチャット内容は、AIの回答品質向上およびサービス改善の目的にのみ使用し、利用者の同意なく第三者に提供することはありません。
+            </p>
+
+            <h3>5. 安全管理</h3>
+            <p>個人情報への不正アクセス、紛失、破壊、改ざん、漏洩を防止するため、適切な安全管理措置を講じます。</p>
+
+            <h3>6. お問い合わせ</h3>
+            <p>個人情報の開示・訂正・削除等のご請求は、下記までご連絡ください。</p>
+            <p>
+                📧 <span>hinata729jp@gmail.com</span>
+            </p>
+        </div>
+
+        <!-- ==================== Terms of Service ==================== -->
+        <div id="terms" class="tab-panel">
+
+            <h2>利用規約</h2>
+
+            <h3>第1条（適用）</h3>
+            <p>本規約は、ヒナタAI（以下「当サービス」）の利用に関する条件を定めるものです。利用者は、本規約に同意のうえ当サービスをご利用ください。</p>
+
+            <h3>第2条（サービス内容）</h3>
+            <p>当サービスは、MBTI性格診断に基づくAIチャットボットによるカウンセリングサービスをLINE上で提供するものです。</p>
+
+            <h3>第3条（料金および支払い）</h3>
+            <ul>
+                <li>ローンチ記念プラン：月額500円（税込）— 開始から約1ヶ月間のお試し価格</li>
+                <li>通常プラン：月額1,480円（税込）— お試し期間終了後に自動移行</li>
+                <li>支払方法：クレジットカード決済（Stripe経由）</li>
+                <li>課金日：初回決済日と同日に毎月自動課金</li>
+            </ul>
+
+            <h3>第4条（解約）</h3>
+            <ul>
+                <li>LINEトーク画面にて「解約」とメッセージを送信することで解約できます。</li>
+                <li>解約後は当月末までサービスを利用でき、翌月から課金が停止されます。</li>
+                <li>日割り返金は行いません。</li>
+            </ul>
+
+            <h3>第5条（免責事項）</h3>
+            <ul>
+                <li>当サービスのAIによる回答は参考情報であり、医療・法律・金融等の専門的助言ではありません。</li>
+                <li>AIの回答に基づく行動の結果について、当サービスは一切の責任を負いません。</li>
+                <li>重要な判断を行う際は、必ず専門家にご相談ください。</li>
+            </ul>
+
+            <h3>第6条（禁止事項）</h3>
+            <p>以下の行為を禁止します。</p>
+            <ul>
+                <li>サービスの不正利用、リバースエンジニアリング</li>
+                <li>システムプロンプトの抽出を試みる行為</li>
+                <li>他の利用者への迷惑行為</li>
+                <li>法令に違反する行為</li>
+            </ul>
+
+            <h3>第7条（サービスの変更・停止）</h3>
+            <p>当サービスは、事前の通知なくサービス内容の変更や一時停止を行う場合があります。</p>
+
+            <h3>第8条（知的財産権）</h3>
+            <p>当サービスに含まれるAIモデル、プロンプト、デザイン等の知的財産権は当サービスに帰属します。</p>
+
+            <h3>第9条（規約の変更）</h3>
+            <p>本規約は、利用者への事前通知のうえ変更する場合があります。変更後もサービスを利用した場合、変更後の規約に同意したものとみなします。</p>
+
+            <h3>第10条（準拠法・管轄）</h3>
+            <p>本規約は日本法に準拠し、紛争が生じた場合は東京地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+        </div>
+
+        <div class="date-info">
+            制定日：2026年2月22日
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">トップページ</a>
+            <a href="tokushoho.html">特定商取引法に基づく表記</a>
+            <a href="policy.html">プライバシーポリシー・利用規約</a>
+        </div>
+        <p class="copy">&copy; 2026 ヒナタAI</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

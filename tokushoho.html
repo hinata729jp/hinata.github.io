@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特定商取引法に基づく表記 - ヒナタAI</title>
+    <meta name="description" content="ヒナタAIの特定商取引法に基づく表記ページです。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --pink: #F4A6C0;
+            --pink-light: #F8C8D8;
+            --pink-pale: #FDE8EF;
+            --blue: #7EC8E3;
+            --blue-pale: #E3F3FA;
+            --yellow: #F5D76E;
+            --yellow-pale: #FFF8E1;
+            --bg: #FFF9F5;
+            --text: #3D3D3D;
+            --lavender: #E8D5F0;
+            --lavender-pale: #F5EEF8;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            line-height: 1.8;
+            background: var(--bg);
+        }
+
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(244, 166, 192, .2);
+            border-bottom: 3px solid var(--pink-pale);
+        }
+
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--pink)
+        }
+
+        .logo a {
+            color: var(--pink);
+            text-decoration: none
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 8px;
+            border: 2px solid var(--pink-light)
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: .88rem;
+            font-weight: 500;
+            margin-left: 22px;
+            transition: color .2s
+        }
+
+        nav a:hover {
+            color: var(--pink)
+        }
+
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 0
+        }
+
+        .back-link a {
+            color: var(--pink);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 500
+        }
+
+        .back-link a:hover {
+            text-decoration: underline
+        }
+
+        .back-link a::before {
+            content: '← '
+        }
+
+        .page-hero {
+            background: linear-gradient(160deg, var(--pink-pale) 0%, var(--lavender-pale) 100%);
+            text-align: center;
+            padding: 48px 20px;
+        }
+
+        .page-hero h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text)
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px 20px 64px
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px
+        }
+
+        .info-table th,
+        .info-table td {
+            padding: 16px 18px;
+            text-align: left;
+            border-bottom: 2px solid var(--lavender-pale);
+            font-size: .92rem;
+            vertical-align: top;
+        }
+
+        .info-table th {
+            background: var(--lavender-pale);
+            color: var(--text);
+            font-weight: 700;
+            width: 200px;
+            white-space: nowrap;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .info-table td {
+            border-radius: 0 8px 8px 0
+        }
+
+
+
+        footer {
+            background: var(--white);
+            color: var(--text);
+            text-align: center;
+            padding: 28px 20px;
+            font-size: .82rem;
+            border-top: 3px solid var(--pink-pale);
+        }
+
+        footer a {
+            color: var(--pink);
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500
+        }
+
+        footer a:hover {
+            text-decoration: underline
+        }
+
+        footer .footer-links {
+            margin-bottom: 12px
+        }
+
+        footer .copy {
+            opacity: .5
+        }
+
+        @media(max-width:600px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 10px
+            }
+
+            nav a {
+                margin-left: 12px;
+                font-size: .82rem
+            }
+
+            .page-hero h1 {
+                font-size: 1.4rem
+            }
+
+            .info-table th {
+                width: auto;
+                display: block;
+                padding-bottom: 4px;
+                border-bottom: none;
+                border-radius: 8px 8px 0 0
+            }
+
+            .info-table td {
+                display: block;
+                padding-top: 0;
+                padding-bottom: 14px;
+                border-radius: 0 0 8px 8px
+            }
+
+            .info-table tr {
+                display: block;
+                border-bottom: 2px solid var(--lavender-pale);
+                margin-bottom: 4px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="character.jpg" alt="ヒナタAI">ヒナタAI
+                </a>
+            </div>
+            <nav>
+                <a href="index.html">トップ</a>
+                <a href="tokushoho.html">特商法表記</a>
+                <a href="policy.html">ポリシー・規約</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <h1>特定商取引法に基づく表記</h1>
+    </div>
+
+    <div class="back-link">
+        <a href="index.html">トップページに戻る</a>
+    </div>
+
+    <div class="content">
+        <table class="info-table">
+            <tr>
+                <th>販売事業者名</th>
+                <td>消費者からのご請求に基づき、遅滞なく開示いたします。</td>
+            </tr>
+            <tr>
+                <th>販売責任者</th>
+                <!-- ここを差し替え：本名に変更してください -->
+                <td><span>西野祐太</span></td>
+            </tr>
+            <tr>
+                <th>所在地</th>
+                <td>消費者からのご請求に基づき、遅滞なく開示いたします。</td>
+            </tr>
+            <tr>
+                <th>電話番号</th>
+                <td>消費者からのご請求に基づき、遅滞なく開示いたします。</td>
+            </tr>
+            <tr>
+                <th>開示請求先メールアドレス</th>
+                <td><span>hinata729jp@gmail.com</span></td>
+            </tr>
+            <tr>
+                <th>販売価格</th>
+                <td>ローンチ記念プラン：月額500円（税込）<br>通常プラン：月額1,480円（税込）</td>
+            </tr>
+            <tr>
+                <th>支払方法</th>
+                <td>クレジットカード決済（Stripe経由）<br>対応ブランド：Visa / Mastercard / American Express / JCB</td>
+            </tr>
+            <tr>
+                <th>支払時期</th>
+                <td>初回お申込み時に即時決済。以降、毎月同日に自動決済。</td>
+            </tr>
+            <tr>
+                <th>サービス提供時期</th>
+                <td>決済完了後、即時ご利用いただけます。</td>
+            </tr>
+            <tr>
+                <th>契約期間</th>
+                <td>1ヶ月単位の自動更新</td>
+            </tr>
+            <tr>
+                <th>解約方法</th>
+                <td>LINEトーク画面にて「解約」とメッセージを送信</td>
+            </tr>
+            <tr>
+                <th>解約条件</th>
+                <td>解約申請後、当月末までサービスをご利用いただけます。翌月以降の課金は停止されます。日割り返金は行っておりません。</td>
+            </tr>
+            <tr>
+                <th>返金ポリシー</th>
+                <td>提供済み期間に対する返金はお受けしておりません。サービスに重大な不具合があった場合は個別にご対応いたします。</td>
+            </tr>
+            <tr>
+                <th>動作環境</th>
+                <td>LINEアプリがご利用可能な環境（スマートフォン・PC）</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">トップページ</a>
+            <a href="tokushoho.html">特定商取引法に基づく表記</a>
+            <a href="policy.html">プライバシーポリシー・利用規約</a>
+        </div>
+        <p class="copy">&copy; 2026 ヒナタAI</p>
+    </footer>
+
+</body>
+
+</html>
