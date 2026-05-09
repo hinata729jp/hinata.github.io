@@ -4,8 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ヒナタAI - MBTIであなたに寄り添うAIカウンセラー</title>
-    <meta name="description" content="MBTI性格診断に基づくAIカウンセリングサービス。LINE上でAIカウンセラーに相談でき、あなたの性格タイプに合わせたアドバイスを受けられます。">
+    <title>ヒナタAI - あなた専用のINFJ相談相手、いつでもLINEに。</title>
+    <meta name="description"
+        content="INFJ向けLINE AIカウンセラー「ヒナタAI」。ヒナタの全動画の知見をベースにしたAIが、24時間あなたの話を聴きます。初月500円から。">
+    <meta property="og:title" content="ヒナタAI - あなた専用のINFJ相談相手、いつでもLINEに。">
+    <meta property="og:description" content="ヒナタの全動画の知見をベースにしたAIカウンセラーが、24時間あなたの話を聴きます。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="character.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
@@ -29,9 +34,12 @@
             --yellow-pale: #FFF8E1;
             --bg: #FFF9F5;
             --text: #3D3D3D;
+            --text-soft: #6B6B6B;
             --lavender: #E8D5F0;
             --lavender-pale: #F5EEF8;
             --white: #FFFFFF;
+            --line: #06C755;
+            --line-dark: #05A648;
         }
 
         html {
@@ -41,8 +49,9 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             color: var(--text);
-            line-height: 1.8;
+            line-height: 1.85;
             background: var(--bg);
+            -webkit-font-smoothing: antialiased;
         }
 
         /* ====== Header ====== */
@@ -65,24 +74,26 @@
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 900;
             letter-spacing: .04em;
-            color: var(--pink)
+            color: var(--pink);
         }
 
         .logo a {
             color: var(--pink);
-            text-decoration: none
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
         }
 
         .logo img {
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            vertical-align: middle;
-            margin-right: 8px;
+            margin-right: 10px;
             border: 2px solid var(--pink-light);
+            object-fit: cover;
         }
 
         nav a {
@@ -90,7 +101,7 @@
             text-decoration: none;
             font-size: .88rem;
             font-weight: 500;
-            margin-left: 22px;
+            margin-left: 20px;
             transition: color .2s;
         }
 
@@ -102,70 +113,93 @@
         .hero {
             background: linear-gradient(160deg, var(--pink-pale) 0%, var(--blue-pale) 50%, var(--lavender-pale) 100%);
             text-align: center;
-            padding: 64px 20px 56px;
+            padding: 72px 20px 64px;
         }
 
         .hero-icon {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             border: 4px solid var(--white);
-            box-shadow: 0 4px 20px rgba(244, 166, 192, .3);
-            margin-bottom: 20px;
+            box-shadow: 0 4px 24px rgba(244, 166, 192, .35);
+            margin-bottom: 24px;
             object-fit: cover;
         }
 
         .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 6px;
+            font-size: 2rem;
+            line-height: 1.5;
+            margin-bottom: 18px;
             font-weight: 900;
-            color: var(--pink)
-        }
-
-        .hero .catchcopy {
-            font-size: 1.1rem;
             color: var(--text);
-            opacity: .8;
-            margin-bottom: 20px;
-            font-weight: 500;
+            letter-spacing: .01em;
         }
 
-        .hero p {
-            max-width: 600px;
-            margin: 0 auto 28px;
-            font-size: .98rem;
-            line-height: 1.9;
-            color: var(--text);
-            opacity: .85
+        .hero h1 .accent {
+            color: var(--pink);
         }
 
-        .btn-primary {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--pink) 0%, var(--pink-light) 100%);
-            color: var(--white);
-            padding: 14px 40px;
-            border-radius: 40px;
-            font-weight: 700;
+        .hero .lead {
+            max-width: 580px;
+            margin: 0 auto 32px;
             font-size: 1rem;
+            line-height: 1.9;
+            color: var(--text-soft);
+        }
+
+        /* ====== Buttons ====== */
+        .btn-line {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--line);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1.02rem;
             text-decoration: none;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 16px rgba(244, 166, 192, .35);
-            transition: transform .15s, box-shadow .2s;
+            box-shadow: 0 6px 20px rgba(6, 199, 85, .35);
+            transition: transform .15s, box-shadow .2s, background .2s;
         }
 
-        .btn-primary:hover {
+        .btn-line:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(244, 166, 192, .45)
+            background: var(--line-dark);
+            box-shadow: 0 8px 28px rgba(6, 199, 85, .45);
         }
 
-        /* ====== Section ====== */
+        .btn-line .line-icon {
+            width: 22px;
+            height: 22px;
+            background: var(--white);
+            color: var(--line);
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .72rem;
+            font-weight: 900;
+            letter-spacing: .02em;
+        }
+
+        .btn-sub-note {
+            display: block;
+            margin-top: 14px;
+            font-size: .82rem;
+            color: var(--text-soft);
+        }
+
+        /* ====== Section common ====== */
         section {
-            padding: 56px 20px
+            padding: 64px 20px
         }
 
         .section-inner {
-            max-width: 900px;
+            max-width: 880px;
             margin: 0 auto
         }
 
@@ -175,6 +209,7 @@
             color: var(--text);
             font-weight: 900;
             margin-bottom: 36px;
+            line-height: 1.5;
             position: relative;
             padding-bottom: 14px;
         }
@@ -205,155 +240,139 @@
             background: var(--pink-pale)
         }
 
-        /* ====== About ====== */
-        .about-grid {
+        /* ====== Empathy ====== */
+        .empathy-list {
+            display: grid;
+            gap: 14px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .empathy-item {
+            background: var(--white);
+            border: 2px solid var(--lavender);
+            border-radius: 16px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: .98rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .empathy-item .check {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-light));
+            border-radius: 50%;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: .9rem;
+        }
+
+        /* ====== Story ====== */
+        .story-block {
+            background: var(--white);
+            border: 2px solid var(--pink-pale);
+            border-radius: 24px;
+            padding: 40px 32px;
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(244, 166, 192, .12);
+        }
+
+        .story-block p {
+            font-size: .98rem;
+            line-height: 2;
+            color: var(--text);
+            margin-bottom: 1.2em;
+        }
+
+        .story-block p:last-child {
+            margin-bottom: 0
+        }
+
+        .story-block .signature {
+            text-align: right;
+            margin-top: 28px;
+            color: var(--pink);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* ====== Features ====== */
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 24px;
         }
 
-        .about-card {
+        .feature-card {
             background: var(--white);
             border: 2px solid var(--lavender);
             border-radius: 20px;
-            padding: 28px 24px;
+            padding: 32px 26px;
             text-align: center;
             transition: transform .2s, box-shadow .2s;
         }
 
-        .about-card:hover {
+        .feature-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(232, 213, 240, .3)
+            box-shadow: 0 6px 20px rgba(232, 213, 240, .35)
         }
 
-        .about-card .icon {
-            font-size: 2.4rem;
-            margin-bottom: 12px
-        }
-
-        .about-card h3 {
-            color: var(--pink);
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            font-weight: 900
-        }
-
-        .about-card p {
-            font-size: .9rem;
-            color: var(--text);
-            opacity: .75
-        }
-
-        /* ====== Pricing ====== */
-        .pricing-table {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-            max-width: 680px;
-            margin: 0 auto;
-        }
-
-        .price-card {
-            background: var(--white);
-            border: 2px solid var(--lavender);
-            border-radius: 20px;
-            padding: 32px 28px;
-            text-align: center;
-            transition: transform .2s, box-shadow .2s;
-        }
-
-        .price-card.featured {
-            border-color: var(--pink);
-            position: relative
-        }
-
-        .price-card.featured::before {
-            content: '🎉 お試し価格';
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--pink), var(--pink-light));
+        .feature-card .num {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--pink), var(--blue));
             color: var(--white);
-            font-size: .78rem;
-            font-weight: 700;
-            padding: 4px 18px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .price-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(232, 213, 240, .3)
-        }
-
-        .price-card h3 {
-            color: var(--text);
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            font-weight: 900
-        }
-
-        .price-card .price {
-            font-size: 2rem;
+            font-size: .7rem;
             font-weight: 900;
-            color: var(--pink);
-            margin-bottom: 4px
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            letter-spacing: .08em;
         }
 
-        .price-card .price small {
-            font-size: .85rem;
-            font-weight: 400;
-            color: var(--text)
+        .feature-card .icon {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+            line-height: 1;
         }
 
-        .price-card .tax {
-            font-size: .78rem;
+        .feature-card h3 {
             color: var(--text);
-            opacity: .6;
-            margin-bottom: 16px
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            font-weight: 900;
+            line-height: 1.5;
         }
 
-        .price-card .desc {
-            font-size: .88rem;
-            color: var(--text);
-            opacity: .7;
-            margin-bottom: 18px;
-            line-height: 1.6
-        }
-
-        .price-card ul {
-            list-style: none;
+        .feature-card p {
+            font-size: .9rem;
+            color: var(--text-soft);
+            line-height: 1.8;
             text-align: left;
-            margin-bottom: 20px
-        }
-
-        .price-card li {
-            padding: 6px 0;
-            font-size: .88rem;
-            border-bottom: 1px solid var(--lavender-pale)
-        }
-
-        .price-card li::before {
-            content: '✓ ';
-            color: var(--pink);
-            font-weight: 700
         }
 
         /* ====== Flow ====== */
         .flow-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-            text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 18px;
             counter-reset: step;
         }
 
         .flow-step {
             background: var(--white);
             border-radius: 20px;
-            padding: 32px 20px;
+            padding: 28px 20px;
             border: 2px solid var(--lavender);
+            text-align: center;
             position: relative;
             transition: transform .2s;
         }
@@ -368,9 +387,9 @@
             display: inline-block;
             background: linear-gradient(135deg, var(--pink), var(--blue));
             color: var(--white);
-            font-size: .72rem;
+            font-size: .7rem;
             font-weight: 700;
-            padding: 4px 16px;
+            padding: 4px 14px;
             border-radius: 20px;
             margin-bottom: 14px;
             letter-spacing: .06em;
@@ -378,23 +397,137 @@
 
         .flow-step .icon {
             font-size: 2rem;
-            margin-bottom: 8px
+            margin-bottom: 8px;
+            line-height: 1;
         }
 
         .flow-step h3 {
             color: var(--text);
-            font-size: 1rem;
-            margin-bottom: 6px;
-            font-weight: 900
+            font-size: .98rem;
+            margin-bottom: 8px;
+            font-weight: 900;
+            line-height: 1.5;
         }
 
         .flow-step p {
             font-size: .85rem;
+            color: var(--text-soft);
+            line-height: 1.7
+        }
+
+        /* ====== Pricing ====== */
+        .pricing-card {
+            background: var(--white);
+            border: 3px solid var(--pink);
+            border-radius: 24px;
+            padding: 40px 32px;
+            max-width: 480px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 6px 24px rgba(244, 166, 192, .2);
+        }
+
+        .pricing-card::before {
+            content: '🎉 初月クーポンあり';
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--pink), var(--pink-light));
+            color: var(--white);
+            font-size: .8rem;
+            font-weight: 700;
+            padding: 5px 20px;
+            border-radius: 20px;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(244, 166, 192, .35);
+        }
+
+        .pricing-card h3 {
             color: var(--text);
-            opacity: .7
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+
+        .pricing-card .price-main {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--pink);
+            line-height: 1.2;
+        }
+
+        .pricing-card .price-main small {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .pricing-card .price-tax {
+            font-size: .82rem;
+            color: var(--text-soft);
+            margin-bottom: 22px;
+        }
+
+        .coupon-box {
+            background: var(--pink-pale);
+            border: 2px dashed var(--pink);
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin: 18px 0 22px;
+        }
+
+        .coupon-box .coupon-label {
+            font-size: .82rem;
+            color: var(--text-soft);
+            margin-bottom: 4px;
+        }
+
+        .coupon-box .coupon-price {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--pink);
+            line-height: 1.2;
+        }
+
+        .coupon-box .coupon-price small {
+            font-size: .9rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .coupon-box .coupon-code {
+            margin-top: 8px;
+            font-size: .9rem;
+            color: var(--text);
+        }
+
+        .coupon-box .coupon-code strong {
+            display: inline-block;
+            background: var(--white);
+            border: 2px solid var(--pink);
+            border-radius: 6px;
+            padding: 2px 12px;
+            margin-left: 6px;
+            color: var(--pink);
+            font-weight: 900;
+            letter-spacing: .12em;
+            font-size: .98rem;
+        }
+
+        .pricing-card .note {
+            font-size: .85rem;
+            color: var(--text-soft);
+            line-height: 1.7;
         }
 
         /* ====== FAQ ====== */
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
         .faq-item {
             background: var(--white);
             border: 2px solid var(--lavender);
@@ -411,15 +544,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: .95rem;
+            font-size: .96rem;
+            line-height: 1.6;
+            user-select: none;
         }
 
         .faq-q::after {
             content: '＋';
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--pink);
             flex-shrink: 0;
-            margin-left: 12px
+            margin-left: 12px;
+            transition: transform .25s;
         }
 
         .faq-item.open .faq-q::after {
@@ -431,39 +567,146 @@
             overflow: hidden;
             transition: max-height .35s ease, padding .35s ease;
             padding: 0 24px;
-            font-size: .9rem;
-            color: var(--text);
-            opacity: .75;
+            font-size: .92rem;
+            color: var(--text-soft);
+            line-height: 1.85;
         }
 
         .faq-item.open .faq-a {
-            max-height: 300px;
-            padding: 0 24px 18px
+            max-height: 400px;
+            padding: 0 24px 20px
         }
 
-        /* ====== Contact ====== */
-        .contact-box {
-            background: linear-gradient(135deg, var(--pink-pale) 0%, var(--lavender-pale) 100%);
+        /* ====== Worry Resolution (B) ====== */
+        .worry-list {
+            display: grid;
+            gap: 16px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .worry-card {
+            background: var(--white);
             border: 2px solid var(--lavender);
-            border-radius: 20px;
-            padding: 40px 32px;
-            text-align: center;
+            border-radius: 16px;
+            padding: 22px 24px;
         }
 
-        .contact-box h3 {
-            margin-bottom: 10px;
-            font-size: 1.15rem;
-            font-weight: 900;
-            color: var(--text)
+        .worry-q {
+            color: var(--text-soft);
+            font-size: .92rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px dashed var(--lavender);
+            line-height: 1.6;
         }
 
-        .contact-box p {
+        .worry-q::before {
+            content: '😟';
+            margin-right: 6px;
+        }
+
+        .worry-a {
             color: var(--text);
-            opacity: .8;
-            font-size: .92rem
+            font-size: .98rem;
+            line-height: 1.85;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
         }
 
+        .worry-a::before {
+            content: '✓';
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-light));
+            border-radius: 50%;
+            color: var(--white);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: .82rem;
+            margin-top: 2px;
+        }
 
+        /* ====== Gentle Push (A) ====== */
+        .gentle-push-block {
+            background: var(--white);
+            border: 2px solid var(--pink-pale);
+            border-radius: 24px;
+            padding: 44px 36px;
+            max-width: 660px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(244, 166, 192, .12);
+        }
+
+        .gentle-push-block .lead {
+            font-size: 1.08rem;
+            line-height: 1.9;
+            color: var(--text);
+            margin-bottom: 1.4em;
+            font-weight: 700;
+        }
+
+        .gentle-push-block p {
+            font-size: .96rem;
+            line-height: 2;
+            color: var(--text);
+            margin-bottom: 1.2em;
+        }
+
+        .gentle-push-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .gentle-push-block strong {
+            color: var(--pink);
+            font-weight: 900;
+        }
+
+        /* ====== Final CTA ====== */
+        .final-cta {
+            background: linear-gradient(160deg, var(--pink-pale) 0%, var(--lavender-pale) 100%);
+            text-align: center;
+            padding: 72px 20px;
+        }
+
+        .final-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .final-cta p {
+            color: var(--text-soft);
+            font-size: .98rem;
+            margin-bottom: 28px;
+            line-height: 1.9;
+        }
+
+        .final-cta .coupon-inline {
+            margin-top: 16px;
+            font-size: .88rem;
+            color: var(--text);
+        }
+
+        .final-cta .coupon-inline strong {
+            display: inline-block;
+            background: var(--white);
+            border: 2px solid var(--pink);
+            border-radius: 6px;
+            padding: 2px 12px;
+            margin-left: 6px;
+            color: var(--pink);
+            font-weight: 900;
+            letter-spacing: .12em;
+        }
 
         /* ====== Footer ====== */
         footer {
@@ -479,7 +722,7 @@
             color: var(--pink);
             text-decoration: none;
             margin: 0 12px;
-            font-weight: 500
+            font-weight: 500;
         }
 
         footer a:hover {
@@ -487,7 +730,8 @@
         }
 
         footer .footer-links {
-            margin-bottom: 12px
+            margin-bottom: 12px;
+            line-height: 2.2;
         }
 
         footer .copy {
@@ -498,37 +742,92 @@
         @media(max-width:600px) {
             .header-inner {
                 flex-direction: column;
-                gap: 10px
+                gap: 8px;
+                padding: 10px 16px;
             }
 
             nav a {
-                margin-left: 12px;
-                font-size: .82rem
+                margin-left: 10px;
+                margin-right: 4px;
+                font-size: .8rem;
+            }
+
+            .hero {
+                padding: 56px 18px 52px
             }
 
             .hero h1 {
-                font-size: 1.6rem
+                font-size: 1.55rem
             }
 
-            .hero .catchcopy {
-                font-size: .95rem
-            }
-
-            .hero p {
-                font-size: .9rem
+            .hero .lead {
+                font-size: .94rem
             }
 
             .hero-icon {
-                width: 96px;
-                height: 96px
+                width: 92px;
+                height: 92px
+            }
+
+            .btn-line {
+                padding: 14px 28px;
+                font-size: .96rem;
+                width: 100%;
+                max-width: 320px;
             }
 
             section {
-                padding: 40px 16px
+                padding: 48px 16px
             }
 
             .section-title {
                 font-size: 1.3rem
+            }
+
+            .story-block {
+                padding: 28px 22px
+            }
+
+            .empathy-item {
+                padding: 16px 18px;
+                font-size: .92rem;
+                gap: 12px;
+            }
+
+            .pricing-card {
+                padding: 32px 22px
+            }
+
+            .pricing-card .price-main {
+                font-size: 2rem
+            }
+
+            .feature-card {
+                padding: 26px 22px
+            }
+
+            .worry-card {
+                padding: 18px 20px
+            }
+
+            .worry-a {
+                font-size: .92rem
+            }
+
+            .gentle-push-block {
+                padding: 30px 22px
+            }
+
+            .gentle-push-block .lead {
+                font-size: 1rem
+            }
+
+            .gentle-push-block p {
+                font-size: .92rem
+            }
+
+            .final-cta h2 {
+                font-size: 1.2rem
             }
         }
     </style>
@@ -545,43 +844,116 @@
                 </a>
             </div>
             <nav>
-                <a href="#about">サービス概要</a>
-                <a href="#pricing">料金プラン</a>
-                <a href="#flow">ご利用の流れ</a>
-                <a href="#faq">よくある質問</a>
-                <a href="#contact">お問い合わせ</a>
+                <a href="#story">想い</a>
+                <a href="#features">特徴</a>
+                <a href="#flow">使い方</a>
+                <a href="#pricing">料金</a>
+                <a href="#faq">FAQ</a>
             </nav>
         </div>
     </header>
 
     <!-- ====== Hero ====== -->
-    <div class="hero">
-        <img src="character.jpg" alt="ヒナタAI キャラクター" class="hero-icon">
-        <h1>ヒナタAI</h1>
-        <p class="catchcopy">MBTIであなたに寄り添うAIカウンセラー</p>
-        <p>MBTI性格診断に基づき、あなたの性格タイプに合わせた最適なアドバイスをLINEでお届けします。恋愛・仕事・人間関係の悩みを、3つの回答スタイルからお好みで相談できます。</p>
-        <a href="#pricing" class="btn-primary">料金プランを見る</a>
-    </div>
+    <section class="hero">
+        <img src="character.jpg" alt="ヒナタAI" class="hero-icon">
+        <h1>あなた専用の<span class="accent">INFJ相談相手</span>、<br>いつでもLINEに。</h1>
+        <p class="lead">ヒナタの全動画の知見をベースにしたAIカウンセラーが、<br>24時間あなたの話を聴きます。</p>
+        <a href="https://lin.ee/6h3NBXu" class="btn-line" target="_blank" rel="noopener">
+            <span class="line-icon">LINE</span>
+            LINEで始める（初月500円）
+        </a>
+        <span class="btn-sub-note">＊友だち追加は無料・登録は数秒で完了します</span>
+    </section>
 
-    <!-- ====== About ====== -->
-    <section id="about" class="bg-lavender">
+    <!-- ====== Empathy ====== -->
+    <section class="bg-lavender">
         <div class="section-inner">
-            <h2 class="section-title">サービス概要</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="icon">🧠</div>
-                    <h3>MBTI × AIカウンセリング</h3>
-                    <p>16タイプの性格診断結果をもとに、あなたに最適化された回答を提供します。</p>
+            <h2 class="section-title">こんな経験、ありませんか？</h2>
+            <div class="empathy-list">
+                <div class="empathy-item">
+                    <span class="check">✓</span>
+                    <span>個別相談に申し込みたかったけど、枠がいっぱいだった</span>
                 </div>
-                <div class="about-card">
-                    <div class="icon">💬</div>
-                    <h3>LINE上でいつでも相談</h3>
-                    <p>LINE公式アカウントからいつでも相談可能。恋愛、仕事、人間関係など幅広い悩みに対応しています。</p>
+                <div class="empathy-item">
+                    <span class="check">✓</span>
+                    <span>相談するほどではないけど、誰かに聴いてほしいことがある</span>
                 </div>
-                <div class="about-card">
+                <div class="empathy-item">
+                    <span class="check">✓</span>
+                    <span>動画を見て気づきはあったけど、自分の場合どうすればいいかわからない</span>
+                </div>
+                <div class="empathy-item">
+                    <span class="check">✓</span>
+                    <span>夜中にふと不安になったとき、すぐ話せる相手がいない</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== Story ====== -->
+    <section id="story" class="bg-pink">
+        <div class="section-inner">
+            <h2 class="section-title">ヒナタの想い</h2>
+            <div class="story-block">
+                <p>これまで個別相談を無料で続けてきました。ありがたいことにたくさんの方から依頼をいただくのですが、対応できる人数にどうしても限りがあって、お待たせしてしまったり、全員に対応しきれないことがずっと心苦しかったんです。</p>
+                <p>いつでも、すぐに、何度でも相談できる場所を作りたい。そう思って生まれたのがヒナタAIです。</p>
+                <p>私がこれまで投稿してきた動画の内容を全て学習させているので、一般的なAIとは違う、私の考え方をベースにした回答をします。しかも毎月新しい動画を投稿するたびにAIも学習するので、使い続けるほどパワーアップしていきます。</p>
+                <p class="signature">— ヒナタ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== Features ====== -->
+    <section id="features">
+        <div class="section-inner">
+            <h2 class="section-title">ヒナタAIの3つの特徴</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="num">FEATURE 01</span>
+                    <div class="icon">📚</div>
+                    <h3>ヒナタの全動画を<br>学習済み</h3>
+                    <p>一般的なAIカウンセラーではありません。ヒナタが発信してきた動画の内容がベースなので、いつもの動画と同じ考え方で答えてくれる、馴染みのある相談相手です。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="num">FEATURE 02</span>
                     <div class="icon">🎯</div>
-                    <h3>3つの回答スタイル</h3>
-                    <p>「寄り添いモード」「正論モード」「分析モード」から、お好みのスタイルを選択できます。</p>
+                    <h3>3つのモードを<br>選べる</h3>
+                    <p>気持ちに寄り添ってほしいときは「寄り添い」、率直な意見がほしいときは「正論」、客観的に整理したいときは「分析」。そのときの気分でモードを選べます。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="num">FEATURE 03</span>
+                    <div class="icon">💬</div>
+                    <h3>LINEで<br>24時間いつでも</h3>
+                    <p>アプリのダウンロード不要。LINEで友だち追加するだけ。深夜でも早朝でも、あなたのタイミングで何度でも相談できます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== Flow ====== -->
+    <section id="flow" class="bg-blue">
+        <div class="section-inner">
+            <h2 class="section-title">使い方は4ステップ</h2>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="icon">📱</div>
+                    <h3>LINEで<br>友だち追加</h3>
+                    <p>下のボタンからLINEに移動して、ヒナタAIを友だち追加します。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="icon">💳</div>
+                    <h3>月額プランに<br>お申込み</h3>
+                    <p>トーク内のご案内から決済へ。初月はクーポン「HINATA」で500円。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="icon">🧭</div>
+                    <h3>タイプとモードを<br>選択</h3>
+                    <p>あなたのMBTIタイプと、その日の気分に合ったモードを選びます。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="icon">💭</div>
+                    <h3>悩みを<br>入力するだけ</h3>
+                    <p>感じていることを送ると、ヒナタAIがあなたに合った回答を返します。</p>
                 </div>
             </div>
         </div>
@@ -590,92 +962,93 @@
     <!-- ====== Pricing ====== -->
     <section id="pricing">
         <div class="section-inner">
-            <h2 class="section-title">料金プラン</h2>
-            <div class="pricing-table">
-                <div class="price-card featured">
-                    <h3>ローンチ記念プラン</h3>
-                    <div class="price">¥500<small>/月</small></div>
-                    <div class="tax">（税込）</div>
-                    <p class="desc">開始から約1ヶ月間のお試し価格。<br>まずはお気軽にお試しください！</p>
-                    <ul>
-                        <li>AIカウンセラーに相談し放題</li>
-                        <li>3つの回答スタイル選択</li>
-                        <li>MBTI性格タイプ別アドバイス</li>
-                    </ul>
-                </div>
-                <div class="price-card">
-                    <h3>通常プラン</h3>
-                    <div class="price">¥1,480<small>/月</small></div>
-                    <div class="tax">（税込）</div>
-                    <p class="desc">お試し期間終了後に自動移行。<br>充実の機能をそのままご利用いただけます。</p>
-                    <ul>
-                        <li>AIカウンセラーに相談し放題</li>
-                        <li>3つの回答スタイル選択</li>
-                        <li>MBTI性格タイプ別アドバイス</li>
-                    </ul>
-                </div>
-            </div>
-            <p style="text-align:center;margin-top:24px;font-size:.84rem;color:var(--text);opacity:.65;">
-                支払方法：クレジットカード決済（Stripe経由 / Visa・Mastercard・American Express・JCB対応）<br>
-                課金サイクル：毎月自動更新 ／ 解約：LINEトーク画面にて「解約」と送信でいつでも可能
-            </p>
-        </div>
-    </section>
+            <h2 class="section-title">料金</h2>
+            <div class="pricing-card">
+                <h3>ヒナタAI 月額プラン</h3>
+                <div class="price-main">¥1,480<small>/月</small></div>
+                <div class="price-tax">（税込）</div>
 
-    <!-- ====== Flow ====== -->
-    <section id="flow" class="bg-blue">
-        <div class="section-inner">
-            <h2 class="section-title">ご利用の流れ</h2>
-            <div class="flow-steps">
-                <div class="flow-step">
-                    <div class="icon">💳</div>
-                    <h3>お申し込み・決済</h3>
-                    <p>本ページからお好みのプランを選択し、クレジットカードでお支払い。</p>
+                <div class="coupon-box">
+                    <div class="coupon-label">初月限定</div>
+                    <div class="coupon-price">¥500<small>/月</small></div>
+                    <div class="coupon-code">クーポンコード <strong>HINATA</strong></div>
                 </div>
-                <div class="flow-step">
-                    <div class="icon">📱</div>
-                    <h3>LINE友だち追加</h3>
-                    <p>決済完了後に表示されるQRコードからLINE友だち追加します。</p>
-                </div>
-                <div class="flow-step">
-                    <div class="icon">💬</div>
-                    <h3>相談開始</h3>
-                    <p>LINEトーク画面でAIカウンセラーに相談を始められます。</p>
-                </div>
+
+                <p class="note">
+                    相談し放題／3つのモード切替／いつでも解約OK<br>
+                    お申込みはLINE友だち追加後、トーク内のご案内から。
+                </p>
             </div>
         </div>
     </section>
 
     <!-- ====== FAQ ====== -->
-    <section id="faq">
+    <section id="faq" class="bg-lavender">
         <div class="section-inner">
             <h2 class="section-title">よくあるご質問</h2>
-            <div class="faq-item">
-                <div class="faq-q">どんな相談ができますか？</div>
-                <div class="faq-a">恋愛、仕事、人間関係、自己分析など幅広い相談に対応しています。MBTIの性格タイプに基づいた回答を行います。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">相談内容は誰かに見られますか？</div>
-                <div class="faq-a">サービスの提供・運用保守のため、運営者がチャット内容を確認する場合がありますが、利用者の同意なく第三者に提供することはありません。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">解約はいつでもできますか？</div>
-                <div class="faq-a">はい。LINEトーク画面で「解約」とメッセージを送信するだけで解約できます。解約後は当月末まで利用でき、翌月から課金が停止されます。日割り返金はございません。</div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q">ヒナタ本人が回答するのですか？</div>
+                    <div class="faq-a">回答するのはAIです。ただし、ヒナタの全動画の内容を学習しているため、ヒナタの考え方や視点をベースにした回答が返ってきます。一般的なAIとは違う、いつもの動画と同じ温度感の相談相手だと思っていただければ。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">INFJ以外でも使えますか？</div>
+                    <div class="faq-a">全16タイプに対応しています。ただし、学習元の動画はINFJ向け中心なので、INFJの方が一番相性が良い設計になっています。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">個別相談とは何が違いますか？</div>
+                    <div class="faq-a">個別相談はヒナタ本人との対話ですが、枠や日程に限りがあります。ヒナタAIはAIによる回答ですが、いつでも・何度でも・好きなタイミングで相談できるのが大きな違いです。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">解約はどうすればいいですか？</div>
+                    <div class="faq-a">LINEのトーク画面からいつでも手続きできます。「解約」とメッセージを送るだけで完了します。引き止めや手続きの煩雑さはありません。</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ====== Contact ====== -->
-    <section id="contact" class="bg-pink">
+    <!-- ====== Worry Resolution (B) ====== -->
+    <section class="bg-yellow">
         <div class="section-inner">
-            <div class="contact-box">
-                <h3>お問い合わせ</h3>
-                <p>ご質問やご不明点がございましたら、下記メールアドレスまでお気軽にお問い合わせください。</p>
-                <p style="margin-top:16px;font-size:1.05rem;">
-                    📧 <span>hinata729jp@gmail.com</span>
-                </p>
+            <h2 class="section-title">迷っているあなたへ</h2>
+            <div class="worry-list">
+                <div class="worry-card">
+                    <div class="worry-q">続けられるか不安です</div>
+                    <div class="worry-a">いつでも1タップで解約できます。継続のプレッシャーは一切ありません。「合うかどうか」を試すだけでも大丈夫です。</div>
+                </div>
+                <div class="worry-card">
+                    <div class="worry-q">AIだから心配...</div>
+                    <div class="worry-a">初月はクーポンHINATAで500円。合わなければ、それ以上の負担はかかりません。コーヒー1杯分の気軽さで試せます。</div>
+                </div>
+                <div class="worry-card">
+                    <div class="worry-q">今は時間がありません</div>
+                    <div class="worry-a">LINEなので、寝る前の3分でも使えます。1日たった一言でも、あなたのペースで使えるサービスです。</div>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- ====== Gentle Push (A) ====== -->
+    <section>
+        <div class="section-inner">
+            <h2 class="section-title">「あとで」を、<br>もう諦めの言い訳にしないで</h2>
+            <div class="gentle-push-block">
+                <p class="lead">「あとでいいや」と思って、<br>そのままになったこと、ありませんか？</p>
+                <p>あの夜、誰かに話したかった気持ち。<br>動画を見て「自分の場合は？」と感じたこと。<br>「あとで考えよう」と置いておくうちに、<br>それは別のかたちで、いつかまた戻ってきます。</p>
+                <p>合わなければ、いつでも1タップで解約。<br>コーヒー1杯分の<strong>初月500円</strong>で、<br>まずは試してみませんか？</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== Final CTA ====== -->
+    <section class="final-cta">
+        <h2>まずは初月500円で<br>試してみてください。</h2>
+        <p>合わなければいつでも解約OK。<br>気軽に、あなたのペースで始めてみてください。</p>
+        <a href="https://lin.ee/6h3NBXu" class="btn-line" target="_blank" rel="noopener">
+            <span class="line-icon">LINE</span>
+            LINEで始める
+        </a>
+        <p class="coupon-inline">初月クーポンコード <strong>HINATA</strong></p>
     </section>
 
     <!-- ====== Footer ====== -->
