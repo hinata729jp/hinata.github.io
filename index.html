@@ -15,6 +15,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
         rel="stylesheet">
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4488Q6ZQ8H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-4488Q6ZQ8H');
+    </script>
     <style>
         *,
         *::before,
@@ -1029,7 +1037,7 @@
         <img src="character.jpg" alt="ヒナタAI" class="hero-icon">
         <h1>あなた専用の<span class="accent">INFJ相談相手</span>、<br>いつでもLINEに。</h1>
         <p class="lead">ヒナタの全動画の知見をベースにした相談相手が、<br>24時間あなたの話を聴きます。</p>
-        <a href="https://lin.ee/6h3NBXu" class="btn-line" target="_blank" rel="noopener">
+        <a href="https://lin.ee/6h3NBXu" class="btn-line" data-cta="hero" target="_blank" rel="noopener">
             <span class="line-icon">LINE</span>
             LINEで始める（1週間無料）
         </a>
@@ -1255,7 +1263,7 @@
             <h3>ご入会特典・会員限定「特典ラウンジ」</h3>
             <p>月額プランにご入会いただいた方だけがご利用いただける、5つの特典を集めた特典ラウンジをご用意しています。生きづらさの共通点にふれた限定動画、心がほどける本棚、その本棚を私の声でご案内する動画、INFJ相談の観察ノート、ヒナタAIの使い方集——。全部見なくて大丈夫。疲れた夜に、ふらっと立ち寄ってください。</p>
         </div>
-        <a href="https://lin.ee/6h3NBXu" class="btn-line" target="_blank" rel="noopener">
+        <a href="https://lin.ee/6h3NBXu" class="btn-line" data-cta="final" target="_blank" rel="noopener">
             <span class="line-icon">LINE</span>
             LINEで始める
         </a>
@@ -1278,6 +1286,12 @@
     <script>
         document.querySelectorAll('.faq-q').forEach(q => {
             q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+        });
+
+        document.querySelectorAll('.btn-line[data-cta]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                gtag('event', 'line_cta_click', { cta_position: btn.dataset.cta });
+            });
         });
     </script>
 </body>
