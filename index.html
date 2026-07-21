@@ -21,7 +21,10 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-4488Q6ZQ8H');
+        // index.html の有無でページが分かれないよう正規化する
+        gtag('config', 'G-4488Q6ZQ8H', {
+            page_path: location.pathname.replace(/index\.html$/, '')
+        });
     </script>
     <style>
         *,
