@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ヒナタAI お申し込みのご案内</title>
+    <meta name="description"
+        content="ヒナタAIへのお申し込みはこちらから。月額1,480円、最初の7日間は無料でお試しいただけます。">
+    <meta property="og:title" content="ヒナタAI お申し込みのご案内">
+    <meta property="og:description" content="24時間いつでも、あなたのことを分かってくれる相談相手を、LINEの中に用意しました。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="character.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!--
+        未確定事項メモ（20260808 LP実装指示書 改訂版 準拠）
+        ・①警告バーの「3日ルール」はGAS未実装。実際にその通り動くようになるまで、このページを本番導線（LINE配布・動画概要欄）にリンクしないこと。
+        ・LINEのあいさつメッセージ側にも「無料トライアルは3日間限定」の一文を入れる想定（指示書7章①）。まだ入っていない場合、①のバーが唐突な期限通告に見えるので、あいさつメッセージ側の対応も忘れずに。
+        ・⑦ 5つの特典サムネイルは未制作のため、テキストのみで仮実装している。画像ができ次第 .perk-item にサムネ画像を追加する。
+        ・⑨⑩「使っているひとの声」は実在の声が集まるまでコメントアウトしたまま。
+        ・⑫の「動画は100万回以上見てもらいました」、および引用コメント2件（「自分のことを言われているみたいでした」「初めて誰かにわかってもらえた気がしました」）は公開前に実数・実在の引用であることを確認すること。
+    -->
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4488Q6ZQ8H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        // index.html の有無でページが分かれないよう正規化する
+        gtag('config', 'G-4488Q6ZQ8H', {
+            page_path: location.pathname.replace(/index\.html$/, '')
+        });
+    </script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --pink: #F4A6C0;
+            --pink-light: #F8C8D8;
+            --pink-pale: #FDE8EF;
+            --blue: #7EC8E3;
+            --blue-pale: #E3F3FA;
+            --yellow: #F5D76E;
+            --yellow-pale: #FFF8E1;
+            --bg: #FFF9F5;
+            --text: #3D3D3D;
+            --text-soft: #6B6B6B;
+            --lavender: #E8D5F0;
+            --lavender-pale: #F5EEF8;
+            --white: #FFFFFF;
+            --line: #06C755;
+            --line-dark: #05A648;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            line-height: 1.85;
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ====== Header ====== */
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(244, 166, 192, .2);
+            border-bottom: 3px solid var(--pink-pale);
+        }
+
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: .04em;
+            color: var(--pink);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid var(--pink-light);
+            object-fit: cover;
+        }
+
+        /* ====== ① 警告バー ====== */
+        .warn-bar {
+            background: var(--pink-pale);
+            border-top: 3px solid var(--pink);
+            border-bottom: 3px solid var(--pink);
+            text-align: center;
+            padding: 28px 20px;
+        }
+
+        .warn-bar h2 {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+
+        .warn-bar p {
+            max-width: 560px;
+            margin: 0 auto;
+            font-size: .92rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+
+        .warn-bar strong {
+            color: var(--pink);
+            font-weight: 900;
+        }
+
+        /* ====== Buttons ====== */
+        .btn-line,
+        .btn-pink {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1.02rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform .15s, box-shadow .2s, background .2s;
+        }
+
+        .btn-line {
+            background: var(--line);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(6, 199, 85, .35);
+        }
+
+        .btn-line:hover {
+            transform: translateY(-2px);
+            background: var(--line-dark);
+            box-shadow: 0 8px 28px rgba(6, 199, 85, .45);
+        }
+
+        .btn-line .line-icon {
+            color: var(--line);
+        }
+
+        .btn-pink {
+            background: linear-gradient(135deg, var(--pink), #EF8BAB);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(244, 166, 192, .45);
+        }
+
+        .btn-pink:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(244, 166, 192, .55);
+        }
+
+        .btn-pink .line-icon {
+            color: var(--pink);
+        }
+
+        .btn-line .line-icon,
+        .btn-pink .line-icon {
+            width: 22px;
+            height: 22px;
+            background: var(--white);
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .72rem;
+            font-weight: 900;
+            letter-spacing: .02em;
+        }
+
+        .cta-block {
+            text-align: center;
+        }
+
+        .cta-note {
+            max-width: 420px;
+            margin: 16px auto 0;
+            font-size: .82rem;
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+
+        .cta-note .em {
+            color: var(--pink);
+            font-weight: 700;
+        }
+
+        /* ====== ⑤ 矢印装飾 ====== */
+        .arrow-decoration {
+            text-align: center;
+            padding: 18px 0 6px;
+        }
+
+        .arrow-decoration span {
+            display: block;
+            color: var(--pink);
+            font-size: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .arrow-decoration span:nth-child(1) {
+            opacity: 1
+        }
+
+        .arrow-decoration span:nth-child(2) {
+            opacity: .55
+        }
+
+        .arrow-decoration span:nth-child(3) {
+            opacity: .25
+        }
+
+        /* ====== Section common ====== */
+        section {
+            padding: 64px 20px
+        }
+
+        .section-inner {
+            max-width: 880px;
+            margin: 0 auto
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.55rem;
+            color: var(--text);
+            font-weight: 900;
+            margin-bottom: 36px;
+            line-height: 1.5;
+            position: relative;
+            padding-bottom: 14px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pink), var(--blue));
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        .section-lead {
+            max-width: 680px;
+            margin: 0 auto 28px;
+            font-size: .96rem;
+            line-height: 1.9;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .section-lead:last-child {
+            margin-bottom: 0;
+        }
+
+        .bg-blue {
+            background: var(--blue-pale)
+        }
+
+        .bg-lavender {
+            background: var(--lavender-pale)
+        }
+
+        .bg-yellow {
+            background: var(--yellow-pale)
+        }
+
+        .bg-pink {
+            background: var(--pink-pale)
+        }
+
+        /* ====== ② 動画 ====== */
+        .video-frame {
+            max-width: 720px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(244, 166, 192, .2);
+        }
+
+        /* ====== ③ オファー強調ボックス ====== */
+        .offer-highlight {
+            background: var(--white);
+            border: 3px solid var(--pink);
+            border-radius: 24px;
+            padding: 32px 28px;
+            max-width: 460px;
+            margin: 32px auto;
+            text-align: center;
+            box-shadow: 0 6px 24px rgba(244, 166, 192, .2);
+        }
+
+        .offer-highlight .sub {
+            font-size: .9rem;
+            color: var(--text-soft);
+        }
+
+        .offer-highlight .title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--pink);
+            margin: 8px 0;
+        }
+
+        /* ====== Empathy / List items ====== */
+        .empathy-list {
+            display: grid;
+            gap: 14px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .empathy-item {
+            background: var(--white);
+            border: 2px solid var(--lavender);
+            border-radius: 16px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: .98rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .empathy-item .check {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-light));
+            border-radius: 50%;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: .9rem;
+        }
+
+        .empathy-item.muted .check {
+            background: #C9C9C9;
+        }
+
+        /* ====== Chat Demo ====== */
+        .chat-demo {
+            max-width: 560px;
+            margin: 0 auto;
+            display: grid;
+            gap: 16px;
+        }
+
+        .chat-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .chat-row.user {
+            justify-content: flex-end;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--pink-light);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .bubble {
+            max-width: 78%;
+            padding: 15px 20px;
+            font-size: .95rem;
+            line-height: 1.8;
+            border-radius: 20px;
+        }
+
+        .bubble.user {
+            background: var(--blue-pale);
+            border: 2px solid var(--blue);
+            color: var(--text);
+            border-bottom-right-radius: 6px;
+        }
+
+        .bubble.ai {
+            background: var(--white);
+            border: 2px solid var(--pink-light);
+            color: var(--text);
+            border-bottom-left-radius: 6px;
+            box-shadow: 0 4px 14px rgba(244, 166, 192, .14);
+        }
+
+        .bubble .who {
+            display: block;
+            font-size: .74rem;
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 4px;
+        }
+
+        .bubble.user .who {
+            color: var(--blue);
+        }
+
+        .chat-note {
+            text-align: center;
+            margin: 28px auto 0;
+            font-size: .96rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .chat-cases {
+            max-width: 560px;
+            margin: 30px auto 0;
+            background: var(--white);
+            border: 2px solid var(--lavender);
+            border-radius: 18px;
+            padding: 24px 26px;
+        }
+
+        .chat-cases .cases-title {
+            font-size: .92rem;
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .chat-cases ul {
+            list-style: none;
+            display: grid;
+            gap: 9px;
+        }
+
+        .chat-cases li {
+            font-size: .93rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        /* ====== Story-style block ====== */
+        .story-block {
+            background: var(--white);
+            border: 2px solid var(--pink-pale);
+            border-radius: 24px;
+            padding: 40px 32px;
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(244, 166, 192, .12);
+        }
+
+        .story-block p {
+            font-size: .98rem;
+            line-height: 2;
+            color: var(--text);
+            margin-bottom: 1.2em;
+        }
+
+        .story-block p:last-child {
+            margin-bottom: 0
+        }
+
+        /* ====== ⑦ 特典ラウンジ ====== */
+        .perk-list {
+            max-width: 640px;
+            margin: 0 auto;
+            display: grid;
+            gap: 14px;
+        }
+
+        .perk-item {
+            background: var(--white);
+            border: 2px solid var(--lavender);
+            border-radius: 16px;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: .96rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .perk-item .perk-num {
+            flex-shrink: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), var(--blue));
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: .82rem;
+        }
+
+        /* ====== ⑨⑩ 声グリッド（現在は不使用・コメントアウト内で定義） ====== */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .voice-card {
+            background: var(--white);
+            border: 2px dashed var(--lavender);
+            border-radius: 16px;
+            aspect-ratio: 4 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-soft);
+            font-size: .84rem;
+        }
+
+        /* ====== ⑨⑬⑭ 見出しバー ====== */
+        .header-bar {
+            color: var(--white);
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.25rem;
+            padding: 22px 20px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .header-bar.pink {
+            background: var(--pink);
+        }
+
+        .header-bar.blue {
+            background: var(--blue);
+        }
+
+        .header-bar.gradient {
+            background: linear-gradient(120deg, var(--pink), var(--blue));
+        }
+
+        /* ====== Flow ====== */
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 18px;
+            counter-reset: step;
+        }
+
+        .flow-step {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 28px 20px;
+            border: 2px solid var(--lavender);
+            text-align: center;
+            position: relative;
+            transition: transform .2s;
+        }
+
+        .flow-step:hover {
+            transform: translateY(-3px)
+        }
+
+        .flow-step::before {
+            counter-increment: step;
+            content: 'STEP ' counter(step);
+            display: inline-block;
+            background: linear-gradient(135deg, var(--pink), var(--blue));
+            color: var(--white);
+            font-size: .7rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            letter-spacing: .06em;
+        }
+
+        .flow-step .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .flow-step h3 {
+            color: var(--text);
+            font-size: .98rem;
+            margin-bottom: 8px;
+            font-weight: 900;
+            line-height: 1.5;
+        }
+
+        .flow-step p {
+            font-size: .85rem;
+            color: var(--text-soft);
+            line-height: 1.7
+        }
+
+        /* ====== FAQ ====== */
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 2px solid var(--lavender);
+            border-radius: 16px;
+            margin-bottom: 14px;
+            overflow: hidden;
+        }
+
+        .faq-q {
+            padding: 18px 24px;
+            font-weight: 700;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .96rem;
+            line-height: 1.6;
+            user-select: none;
+        }
+
+        .faq-q::after {
+            content: '＋';
+            font-size: 1.3rem;
+            color: var(--pink);
+            flex-shrink: 0;
+            margin-left: 12px;
+            transition: transform .25s;
+        }
+
+        .faq-item.open .faq-q::after {
+            content: '－'
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease, padding .35s ease;
+            padding: 0 24px;
+            font-size: .92rem;
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 500px;
+            padding: 0 24px 20px
+        }
+
+        /* ====== Final CTA ====== */
+        .final-cta {
+            background: linear-gradient(160deg, var(--pink-pale) 0%, var(--lavender-pale) 100%);
+            text-align: center;
+            padding: 72px 20px;
+        }
+
+        .final-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .final-cta p {
+            color: var(--text-soft);
+            font-size: .98rem;
+            margin-bottom: 28px;
+            line-height: 1.9;
+        }
+
+        /* ====== Footer ====== */
+        footer {
+            background: var(--white);
+            color: var(--text);
+            text-align: center;
+            padding: 28px 20px;
+            font-size: .82rem;
+            border-top: 3px solid var(--pink-pale);
+        }
+
+        footer a {
+            color: var(--pink);
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline
+        }
+
+        footer .footer-links {
+            margin-bottom: 12px;
+            line-height: 2.2;
+        }
+
+        footer .copy {
+            opacity: .5
+        }
+
+        /* ====== Responsive ====== */
+        @media(max-width:600px) {
+            .header-inner {
+                padding: 10px 16px;
+            }
+
+            .warn-bar {
+                padding: 22px 16px;
+            }
+
+            section {
+                padding: 48px 16px
+            }
+
+            .section-title {
+                font-size: 1.3rem
+            }
+
+            .header-bar {
+                font-size: 1.08rem;
+                padding: 18px 16px;
+            }
+
+            .story-block {
+                padding: 28px 22px
+            }
+
+            .offer-highlight {
+                padding: 26px 22px;
+                margin: 26px auto;
+            }
+
+            .offer-highlight .title {
+                font-size: 1.5rem
+            }
+
+            .bubble {
+                max-width: 80%;
+                font-size: .9rem;
+                padding: 13px 16px;
+            }
+
+            .chat-avatar {
+                width: 34px;
+                height: 34px;
+            }
+
+            .chat-cases {
+                padding: 20px 20px
+            }
+
+            .empathy-item {
+                padding: 16px 18px;
+                font-size: .92rem;
+                gap: 12px;
+            }
+
+            .perk-item {
+                padding: 14px 18px;
+                font-size: .92rem;
+                gap: 12px;
+            }
+
+            .btn-line,
+            .btn-pink {
+                padding: 14px 26px;
+                font-size: .96rem;
+                width: 100%;
+                max-width: 340px;
+            }
+
+            .final-cta h2 {
+                font-size: 1.2rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ====== Header ====== -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="character.jpg" alt="ヒナタAI">ヒナタAI
+            </div>
+        </div>
+    </header>
+
+    <!-- ====== ① 警告バー：3日ルールの告知 ====== -->
+    <div class="warn-bar">
+        <h2>お読みください</h2>
+        <p>
+            ヒナタAIを7日間無料でお試しいただけるのは、<br>
+            LINEに登録してから<strong>3日のあいだだけ</strong>です。
+        </p>
+        <p style="margin-top:14px;">
+            3日を過ぎると、無料お試しのない通常のご登録になります。<br>
+            先に、このページを最後までご覧ください。
+        </p>
+    </div>
+
+    <!-- ====== ② 動画（企画概要動画） ====== -->
+    <section>
+        <div class="section-inner">
+            <div class="video-frame">
+                <iframe width="100%" height="100%" style="border-radius:18px;" src="https://www.youtube.com/embed/0rUIP-Z9Yno" title="ヒナタAI 企画概要動画" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ③ ヘッドコピー＋オファー提示（チャットデモ内包） ====== -->
+    <section class="bg-lavender">
+        <div class="section-inner">
+            <p class="section-lead" style="font-size:1.1rem;font-weight:700;">
+                「こんなこと言ったら重いかな」と考えて、<br>話すのを、やめてしまうあなたへ。
+            </p>
+            <p class="section-lead">
+                24時間いつでも、あなたのことを分かってくれる相談相手を、<br>LINEの中に用意しました。
+            </p>
+
+            <div class="offer-highlight">
+                <p class="sub">あなた専用の相談相手</p>
+                <p class="title">「ヒナタAI」</p>
+                <p class="sub">まずは7日間、無料でお試しください。</p>
+            </div>
+
+            <p class="section-lead">
+                7つのお守りは、もうあなたの手元にあります。<br>
+                でもあれは、私から一方的にお渡ししたものでした。<br>
+                あなたの話を聴いたうえで書いたものでは、ありません。
+            </p>
+            <p class="section-lead">
+                ここから先は、あなたの話を聴かせてください。
+            </p>
+
+            <!-- チャットデモ（既存index.htmlより流用） -->
+            <div class="chat-demo" style="margin-top:36px;">
+                <div class="chat-row user">
+                    <div class="bubble user">既読がついたのに返事が来なくて、私、何か変なこと言ったかなって、ずっと考えちゃう…</div>
+                </div>
+                <div class="chat-row ai">
+                    <img src="character.jpg" alt="ヒナタAI" class="chat-avatar">
+                    <div class="bubble ai"><span class="who">ヒナタAI</span>その時間、苦しいですよね。相手の気持ちまでは分からなくても、あなたが今どうしてそんなに不安になっているのかは、一緒に整理できます。返事を待っているこの時間、いちばん強く感じているのはどんな気持ちですか？</div>
+                </div>
+            </div>
+            <p class="chat-note">深夜でも、何度でも。<br>人に言いにくいことこそ、ここで。</p>
+            <div class="chat-cases">
+                <p class="cases-title">こんな相談が多いです</p>
+                <ul>
+                    <li>💌 返信が来ない、脈があるのか分からない</li>
+                    <li>💔 好きなひと・恋人との関係で消耗している</li>
+                    <li>😔 職場の人間関係を引きずってしまう</li>
+                    <li>🌀 考えすぎて眠れない夜がある</li>
+                </ul>
+            </div>
+
+            <!-- CTA① -->
+            <div class="cta-block">
+                <a class="btn-pink" href="https://lin.ee/6h3NBXu" data-cta="cta-1" target="_blank" rel="noopener">
+                    <span class="line-icon">LINE</span>
+                    まずは7日間、無料で試してみる
+                </a>
+                <p class="cta-note">
+                    <span class="em">＼LINEに登録してから3日のあいだだけ／</span><br>
+                    トーク画面で「申し込み」と送ってください。すぐにご案内が届きます。<br>
+                    7日後は月額1,480円（税込）。合わなければ「解約」と送るだけで、料金はかかりません。
+                </p>
+            </div>
+
+            <!-- ⑤ 矢印装飾 -->
+            <div class="arrow-decoration" aria-hidden="true">
+                <span>▾</span><span>▾</span><span>▾</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ⑥⑦ お試しを始めると、受け取れるもの（5つの特典のみ。7つのお守りは③の地の文で回収済みのためサムネ化しない） ====== -->
+    <section class="bg-blue">
+        <div class="section-inner">
+            <h2 class="section-title">お試しを始めると、<br>受け取れるもの</h2>
+            <p class="section-lead">
+                お試しを始めた時点で、「特典ラウンジ」にもご招待します。
+            </p>
+            <p class="section-lead">
+                ここに置いてあるのは、たくさんのINFJの相談に乗ってきた中で私が気づいたことばかりで、<br>
+                どれもこれまで、個別相談のなかでしかお話ししてこなかったものです。
+            </p>
+            <!-- サムネイルは未制作のためテキストのみで実装。用意でき次第 .perk-item にサムネ画像を追加する -->
+            <div class="perk-list">
+                <div class="perk-item"><span class="perk-num">01</span><span>相談に共通する、たった1つの根っこ（限定動画）</span></div>
+                <div class="perk-item"><span class="perk-num">02</span><span>INFJ相談 観察ノート</span></div>
+                <div class="perk-item"><span class="perk-num">03</span><span>心がほどける本棚</span></div>
+                <div class="perk-item"><span class="perk-num">04</span><span>本棚を、動画でご紹介</span></div>
+                <div class="perk-item"><span class="perk-num">05</span><span>ヒナタAI 効果的な使い方集</span></div>
+            </div>
+            <p class="section-lead" style="margin-top:28px;">全部いっぺんに見なくても大丈夫です。疲れた夜に、ふらっと立ち寄ってもらえたら。</p>
+
+            <!-- CTA② -->
+            <div class="cta-block" style="margin-top:40px;">
+                <a class="btn-pink" href="https://lin.ee/6h3NBXu" data-cta="cta-2" target="_blank" rel="noopener">
+                    <span class="line-icon">LINE</span>
+                    まずは7日間、無料で試してみる
+                </a>
+                <p class="cta-note">
+                    <span class="em">＼LINEに登録してから3日のあいだだけ／</span><br>
+                    トーク画面で「申し込み」と送ってください。すぐにご案内が届きます。<br>
+                    7日後は月額1,480円（税込）。合わなければ「解約」と送るだけで、料金はかかりません。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    ====== ⑨⑩ 使っているひとの声 ======
+    実在の声が集まり次第、このコメントを外して公開する。架空の声は絶対に作らない。
+    <section class="bg-lavender">
+        <div class="section-inner">
+            <div class="header-bar gradient">ヒナタAIを使っているひとの声</div>
+            <div class="voice-grid">
+                <div class="voice-card">お声 01</div>
+                <div class="voice-card">お声 02</div>
+                <div class="voice-card">お声 03</div>
+                <div class="voice-card">お声 04</div>
+                <div class="voice-card">お声 05</div>
+                <div class="voice-card">お声 06</div>
+                <div class="voice-card">お声 07</div>
+                <div class="voice-card">お声 08</div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- ====== ⑫ そもそも、ヒナタって何者？ ======
+         引用コメント2件（「自分のことを言われているみたいでした」「初めて誰かにわかってもらえた気がしました」）は
+         企画概要動画台本からの転用。実在のコメントであることを公開前に運営者に確認すること。 -->
+    <section class="bg-pink">
+        <div class="section-inner">
+            <h2 class="section-title">そもそも、ヒナタって何者？</h2>
+            <p class="section-lead" style="font-weight:700;">
+                INFJのことばかり考えている、ただの会社員です。
+            </p>
+            <div class="story-block">
+                <p>会社では結果が出せず、上司からはずっと否定され続けていました。<br>恋愛や結婚がうまくいく気配もなくて、<br>「自分にはひととしての価値がないんじゃないか」と、本気で思っていた時期があります。</p>
+                <p>しんどいときほど誰かに話したいはずなのに、<br>「こんなこと言ったら重いかな」「わかってもらえないかな」と考えてしまって、<br>結局ひとりで抱え込む日々でした。</p>
+                <p>何度も、消えてしまいたいと思いました。</p>
+                <p>そんな私を立て直してくれたのは、心理学や哲学の本と、<br>自分がINFJだと知ったことでした。<br>「これって私だけの悩みじゃなかったんだ」と、すごく救われたんです。</p>
+                <p>その「私だけじゃなかった」を、誰かにも渡したくて、チャンネルを始めました。</p>
+                <p>INFJのことだけを話し続けて、動画は100万回以上見てもらいました。<br>でも私が驚いたのは、再生数のほうではありません。</p>
+                <p>「自分のことを言われているみたいでした」<br>「初めて誰かにわかってもらえた気がしました」</p>
+                <p>同じ言葉が、何度も、何度も届いたことです。<br>つまり、同じところでつまずいているひとが、それだけいたということでした。</p>
+                <p>そのあと、個別相談という形で、ひとりずつ話を聴くようになりました。<br>悩みの見た目はバラバラでも、行き着く場所はいつも同じでした。</p>
+                <p>そこで見えてきたものを、全部学習させたのが、ヒナタAIです。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ⑬ 向いていないひと ====== -->
+    <section>
+        <div class="section-inner">
+            <div class="header-bar pink">ヒナタAIが向いていないひと</div>
+            <p class="section-lead">ひとつだけです。</p>
+            <div class="empathy-list">
+                <div class="empathy-item muted"><span class="check">・</span><span>気軽に本音で話せる相手が、すでに周りにいるひと</span></div>
+            </div>
+            <p class="section-lead" style="margin-top:28px;">そういう相手がすでにいるなら、無理に使っていただかなくて大丈夫です。</p>
+        </div>
+    </section>
+
+    <!-- ====== ⑭ 向いているひと ====== -->
+    <section class="bg-lavender">
+        <div class="section-inner">
+            <div class="header-bar blue">ヒナタAIが向いているひと</div>
+            <div class="empathy-list">
+                <div class="empathy-item"><span class="check">✓</span><span>相談したいけど、相手の負担になるかもと思って、言えずにいるひと</span></div>
+                <div class="empathy-item"><span class="check">✓</span><span>「こんなこと言ったら重いかな」と、いつも相手を気づかってしまうひと</span></div>
+                <div class="empathy-item"><span class="check">✓</span><span>ひとに相談するより、自分でじっくり考えたいひと</span></div>
+                <div class="empathy-item"><span class="check">✓</span><span>自分の性格のことを、人一倍深く考えてしまうひと</span></div>
+                <div class="empathy-item"><span class="check">✓</span><span>夜になると、急にしんどくなるひと</span></div>
+                <div class="empathy-item"><span class="check">✓</span><span>まだ何を相談したらいいかも、わからないひと</span></div>
+            </div>
+            <p class="section-lead" style="margin-top:28px;">ひとつでも当てはまったなら、力になれると思っています。</p>
+
+            <!-- CTA③ -->
+            <div class="cta-block" style="margin-top:40px;">
+                <a class="btn-pink" href="https://lin.ee/6h3NBXu" data-cta="cta-3" target="_blank" rel="noopener">
+                    <span class="line-icon">LINE</span>
+                    まずは7日間、無料で試してみる
+                </a>
+                <p class="cta-note">
+                    <span class="em">＼LINEに登録してから3日のあいだだけ／</span><br>
+                    トーク画面で「申し込み」と送ってください。すぐにご案内が届きます。<br>
+                    7日後は月額1,480円（税込）。合わなければ「解約」と送るだけで、料金はかかりません。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ⑯ なぜ、7日間も無料なのか ====== -->
+    <section class="bg-yellow">
+        <div class="section-inner">
+            <h2 class="section-title">なぜ、7日間も無料なのか</h2>
+            <div class="story-block">
+                <p>「無料って書いてあるけど、どうせ勝手に課金されるんでしょう」<br>そう思ったひとがいたら、その警戒は正しいと思います。<br>先にお伝えすると、7日目までにLINEで「解約」と送るだけで、料金は一切かかりません。<br>手順はそれだけです。引き止められたり、理由をアンケートで聞かれたりすることもありません。</p>
+                <p>そのうえで、なぜ7日間も無料にしているのかをお話しします。</p>
+                <p>相手がAIだと分かっていて、本音なんて話せるんだろうか。<br>そう思うのが自然だと思います。私も、最初はそう思っていました。</p>
+                <p>でも実際に使ってみて、驚いたことがあります。<br>人には言えなかったことが、するっと言えたんです。</p>
+                <p>重いと思われないし、気を使わなくていい。<br>話したあとで、相手との関係が変わってしまうこともない。<br>相手が人間じゃないからこそ、話せることがあるんだと、そのとき初めて知りました。</p>
+                <p>ただ、これはやってみないと絶対に分かりません。<br>説明を読んで「良さそう」と思っても、いざ打ち明けてみたら違った、<br>ということは、ふつうにあります。<br>だから、お金を払う前に確かめてほしくて、7日間を用意しました。</p>
+                <p>正直に言えば、無理に続けてもらっても意味がないからです。<br>毎日使う必要もありません。しんどい夜だけで十分です。</p>
+            </div>
+
+            <!-- CTA④ -->
+            <div class="cta-block" style="margin-top:40px;">
+                <a class="btn-pink" href="https://lin.ee/6h3NBXu" data-cta="cta-4" target="_blank" rel="noopener">
+                    <span class="line-icon">LINE</span>
+                    まずは7日間、無料で試してみる
+                </a>
+                <p class="cta-note">
+                    <span class="em">＼LINEに登録してから3日のあいだだけ／</span><br>
+                    トーク画面で「申し込み」と送ってください。すぐにご案内が届きます。<br>
+                    7日後は月額1,480円（税込）。合わなければ「解約」と送るだけで、料金はかかりません。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ⑱ よくあるご質問 ====== -->
+    <section id="faq" class="bg-lavender">
+        <div class="section-inner">
+            <h2 class="section-title">よくあるご質問</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q">無料期間が終わったら、自動で課金されますか？</div>
+                    <div class="faq-a">はい。7日間が過ぎると月額1,480円（税込）でのご利用に切り替わります。合わないと感じたら、無料期間中にLINEで「解約」と送っていただければ、料金は一切かかりません。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">解約はかんたんですか？</div>
+                    <div class="faq-a">LINEのトーク画面で「解約」と送るだけです。手続きのページをご案内します。解約後も、その請求期間の終了日まではご利用いただけます。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">AIが答えるんですよね？</div>
+                    <div class="faq-a">はい、回答するのはAIです。ただしヒナタの全動画の内容を学習しているので、いつもの動画と同じ考え方・同じ温度感の答えが返ってきます。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">ChatGPTと何が違うんですか？</div>
+                    <div class="faq-a">最初に、MBTIタイプと答え方のモード（寄り添う・正論・分析）を選んでいただきます。そこから先は、自分のことを一から説明し直す必要がありません。いちばん違うのは、返ってくる答えの中身です。ヒナタAIは私の全動画を学習しているので、一般的なMBTIの解説ではなく、いつもの動画と同じ考え方・同じ温度感で返ってきます。それと、LINEの中で完結するので、アプリを開き直す必要もありません。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">相談した内容は、ヒナタさんに読まれますか？</div>
+                    <div class="faq-a">やりとりの記録は、AIの仕組み上、システムに残ります。私が見ようと思えば見られる状態なので、そこは隠さずお伝えしておきます。ただ、ふだん一つひとつを読むことはありません。「うまく動かない」といったご連絡をいただいて、確認が必要になったときに限られます。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">使いこなせる自信がありません</div>
+                    <div class="faq-a">特別な使い方は要りません。「今日しんどかった」だけ送っていただければ大丈夫です。特典ラウンジには「効果的な使い方集」も置いてあるので、慣れてきたら覗いてみてください。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">続けられるか不安です</div>
+                    <div class="faq-a">毎日使う必要はありません。しんどい夜だけで十分です。続けることを目標にしなくて大丈夫です。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">個別相談とは何が違いますか？</div>
+                    <div class="faq-a">個別相談はヒナタ本人との対話ですが、枠や日程に限りがあります。ヒナタAIは、いつでも・何度でも・好きなタイミングで相談できるのが違いです。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">まだ何を相談したらいいか、わかりません</div>
+                    <div class="faq-a">まったく問題ありません。むしろ、そういうひとにこそ使ってみてほしいと思っています。私自身、昔はそうでしたから。「なんとなくしんどい」だけで大丈夫です。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">カード情報は安全ですか？</div>
+                    <div class="faq-a">カード番号は私（ヒナタ）には見えません。NetflixやAmazonでも使われている、決済専門の会社が管理しています。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">なぜ1,480円なんですか？</div>
+                    <div class="faq-a">ヒナタAIは24時間いつでも、何度でも話を聴ける状態を保っています。そのぶん、動かし続けるための費用がかかります。1,480円は、その場所を維持していくために必要な金額です。安くして続かなくなるより、いつでもそこにある状態を守るほうを選びました。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ⑲ 申し込みからの流れ ====== -->
+    <section class="bg-blue">
+        <div class="section-inner">
+            <h2 class="section-title">申し込みからの流れ</h2>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="icon">💬</div>
+                    <h3>「申し込み」と<br>送る</h3>
+                    <p>LINEのトーク画面で送ってください。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="icon">💳</div>
+                    <h3>カード情報を<br>登録</h3>
+                    <p>届いたご案内から登録します。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="icon">🌙</div>
+                    <h3>その場で<br>相談を開始</h3>
+                    <p>特典ラウンジもここで解禁されます。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="icon">📅</div>
+                    <h3>7日後、<br>月額に切り替わり</h3>
+                    <p>月額1,480円のご利用になります。</p>
+                </div>
+            </div>
+            <p class="section-lead" style="margin-top:28px;">
+                合わないと感じたら、それまでに「解約」と送るだけで大丈夫です。<br>
+                特典ラウンジ目当てで試していただくのでも、まったく構いません。
+            </p>
+
+            <!-- CTA⑤ -->
+            <div class="cta-block" style="margin-top:40px;">
+                <a class="btn-pink" href="https://lin.ee/6h3NBXu" data-cta="cta-5" target="_blank" rel="noopener">
+                    <span class="line-icon">LINE</span>
+                    まずは7日間、無料で試してみる
+                </a>
+                <p class="cta-note">
+                    <span class="em">＼LINEに登録してから3日のあいだだけ／</span><br>
+                    トーク画面で「申し込み」と送ってください。すぐにご案内が届きます。<br>
+                    7日後は月額1,480円（税込）。合わなければ「解約」と送るだけで、料金はかかりません。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ㉑ 最終CTA（「もう少し考えてから」への一節＋LINEグリーンで締める） ====== -->
+    <section class="bg-lavender">
+        <div class="section-inner" style="text-align:center;">
+            <p class="section-lead" style="font-weight:700;">「もう少し考えてから」と思ったひとへ。</p>
+            <p class="section-lead">
+                考える時間は、いくらあっても足りないと思います。私もそうでした。<br>
+                でも、相談相手が自分に合うかどうかは、考えても分かりません。<br>
+                1回話してみるほうが、3日考えるより早いです。
+            </p>
+            <p class="section-lead">7日間は無料なので、迷っている時間のほうが、たぶんもったいないです。</p>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>まずは、話しかけてみてください</h2>
+        <p>合わなければ、いつでも1タップで解約できます。<br>無理に続ける必要はありません。<br>まずは軽い気持ちで、話しかけてみてもらえたら嬉しいです。</p>
+        <a class="btn-line" href="https://lin.ee/6h3NBXu" data-cta="cta-final" target="_blank" rel="noopener">
+            <span class="line-icon">LINE</span>
+            LINEで話しかけてみる
+        </a>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">トップページ</a>
+            <a href="tokushoho.html">特定商取引法に基づく表記</a>
+            <a href="policy.html">プライバシーポリシー</a>
+            <a href="terms.html">利用規約</a>
+        </div>
+        <p class="copy">&copy; 2026 ヒナタAI</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+        });
+
+        document.querySelectorAll('.btn-line[data-cta], .btn-pink[data-cta]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                gtag('event', 'line_cta_click', { cta_position: btn.dataset.cta });
+            });
+        });
+    </script>
+</body>
+
+</html>
