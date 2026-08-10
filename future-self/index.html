@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10年後のあなた診断｜32の動物タイプでみる、これからのあなた</title>
+<meta name="description" content="16の質問で、10年後のあなたを32の動物タイプから診断します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ① ランディング -->
+  <section id="screen-home" class="screen">
+    <div class="home-hero">
+      <div class="eyebrow">FUTURE SELF DIAGNOSIS</div>
+      <h1>10年後のあなたは、<br>どの動物タイプ？</h1>
+      <p>16の質問で、これからのあなたを<br>32タイプの動物から診断します</p>
+      <div class="stat-row">
+        <span>所要時間 約3分</span>
+        <span>全32タイプ</span>
+        <span>無料</span>
+      </div>
+      <button type="button" class="btn btn-primary" id="start-diagnose-btn">診断をはじめる</button>
+      <div class="animal-peek" id="animal-peek"></div>
+    </div>
+
+    <div class="section-title">サンプル結果を見る
+      <span class="sub">4つのゾーンから、それぞれ1タイプずつ先に見られます</span>
+    </div>
+    <div class="sample-grid" id="sample-grid"></div>
+  </section>
+
+  <!-- ② 診断画面 -->
+  <section id="screen-diagnose" class="screen hidden">
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>質問 <span id="progress-current">1</span> / <span id="progress-total">16</span></span>
+        <span>10年後のあなた診断</span>
+      </div>
+      <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="question-card">
+      <p class="question-text" id="question-text"></p>
+      <div id="options-wrap"></div>
+    </div>
+  </section>
+
+  <!-- ③ 結果画面 -->
+  <section id="screen-result" class="screen hidden">
+    <div class="result-inner"></div>
+  </section>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
