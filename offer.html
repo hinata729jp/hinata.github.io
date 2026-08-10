@@ -22,7 +22,7 @@
         ・LINEのあいさつメッセージ側にも「無料トライアルは3日間限定」の一文を入れる想定。まだ入っていない場合、①のバーが唐突な期限通告に見えるので、あいさつメッセージ側の対応も忘れずに。
         ・⑥⑦は「12大特典の合算表示をしない」という当初ルールから方針転換し、5つの特典＋7つの会員限定動画＝計12個を並べる構成にした（2026-08-10 運営者確認）。
         ・⑦ 5つの特典サムネイルは images/tokuten/ に配置済み・反映済み（2026-08-10）。
-        ・⑦ 7つの会員限定動画：実タイトル反映済み（2026-08-10）。サムネイル画像は載せない方針（同日確定）。
+        ・⑦ 7つの会員限定動画：実タイトル・サムネイルとも images/member-videos/ に反映済み（2026-08-10）。
         ・YouTubeメンバーシップ価格は1,290円（運営者確認済み）。ヒナタAIとの差額は190円で統一。「200円」など丸めた数字を使わないこと。
         ・⑨⑩「使っているひとの声」は実在の声が集まるまでコメントアウトしたまま。
         ・⑫の「動画は100万回以上見てもらいました」、および引用コメント2件（「自分のことを言われているみたいでした」「初めて誰かにわかってもらえた気がしました」）は公開前に実数・実在の引用であることを確認すること。
@@ -570,31 +570,47 @@
             margin: 0 0 18px;
         }
 
-        /* ====== ⑦ 会員限定動画：7つのリスト ====== */
+        /* ====== ⑦ 会員限定動画：7つのカード ====== */
         .member-video-list {
             max-width: 640px;
             margin: 0 auto;
             display: grid;
-            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
         }
 
         .member-video-item {
             background: var(--white);
             border: 2px solid var(--blue);
-            border-radius: 16px;
-            padding: 18px 22px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: .96rem;
-            line-height: 1.7;
-            color: var(--text);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .member-video-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(126, 200, 227, .3)
+        }
+
+        .member-video-item .video-media {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, var(--blue-pale), var(--lavender-pale));
+        }
+
+        .member-video-item .video-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .member-video-item .video-num {
-            flex-shrink: 0;
-            width: 34px;
-            height: 34px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background: var(--blue);
             color: var(--white);
@@ -602,7 +618,16 @@
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            font-size: .82rem;
+            font-size: .78rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+        }
+
+        .member-video-item .video-title {
+            padding: 14px 16px;
+            font-size: .92rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: var(--text);
         }
 
         .value-note {
@@ -885,13 +910,8 @@
                 gap: 12px;
             }
 
-            .member-video-item {
-                padding: 14px 18px;
-                font-size: .92rem;
-                gap: 12px;
-            }
-
-            .perk-item .perk-title {
+            .perk-item .perk-title,
+            .member-video-item .video-title {
                 padding: 12px 14px;
                 font-size: .88rem;
             }
@@ -1055,13 +1075,34 @@
                 この7つで終わりではなく、今後も新しい動画を追加していく予定です。続けていただいているあいだ、見られるものは少しずつ増えていきます。
             </p>
             <div class="member-video-list">
-                <div class="member-video-item"><span class="video-num">01</span><span>INFJが生きやすくなったきっかけTOP5【79人の実体験を集計】</span></div>
-                <div class="member-video-item"><span class="video-num">02</span><span>2,433件のコメントからわかった、他のタイプから見たINFJとINFJ自身の自己イメージ</span></div>
-                <div class="member-video-item"><span class="video-num">03</span><span>【コメントデータから見るINFJ】最も多かった悩みTOP10</span></div>
-                <div class="member-video-item"><span class="video-num">04</span><span>【コメント2,433件を分析】INFJのストレス解消法5選</span></div>
-                <div class="member-video-item"><span class="video-num">05</span><span>【INFJ男性は本当にモテないのか】コメントから見える恋愛のギャップ</span></div>
-                <div class="member-video-item"><span class="video-num">06</span><span>【コメント2,433件を分析】INFJが職場の人間関係を改善するために実際にしたこと</span></div>
-                <div class="member-video-item"><span class="video-num">07</span><span>【2,433件のコメントから集計】INFJが燃え尽きから回復した成功例</span></div>
+                <div class="member-video-item">
+                    <div class="video-media"><span class="video-num">01</span><img src="images/member-videos/サムネ_いきやすくなったきっかけ.jpg" alt="INFJが生きやすくなったきっかけTOP5"></div>
+                    <p class="video-title">INFJが生きやすくなったきっかけTOP5【79人の実体験を集計】</p>
+                </div>
+                <div class="member-video-item">
+                    <div class="video-media"><span class="video-num">02</span><img src="images/member-videos/サムネ_他タイプから見たINFJと自己イメージ.jpg" alt="他のタイプから見たINFJとINFJ自身の自己イメージ"></div>
+                    <p class="video-title">2,433件のコメントからわかった、他のタイプから見たINFJとINFJ自身の自己イメージ</p>
+                </div>
+                <div class="member-video-item">
+                    <div class="video-media"><span class="video-num">03</span><img src="images/member-videos/サムネ_悩みトップ10.jpg" alt="最も多かった悩みTOP10"></div>
+                    <p class="video-title">【コメントデータから見るINFJ】最も多かった悩みTOP10</p>
+                </div>
+                <div class="member-video-item">
+                    <div class="video-media"><span class="video-num">04</span><img src="images/member-videos/ストレス解消法5選.jpg" alt="INFJのストレス解消法5選"></div>
+                    <p class="video-title">【コメント2,433件を分析】INFJのストレス解消法5選</p>
+                </div>
+                <div class="member-video-item">
+                    <div class="video-media"><span class="video-num">05</span><img src="images/member-videos/サムネ_INFJ男性はモテないのか.jpg" alt="INFJ男性は本当にモテないのか"></div>
+                    <p class="video-title">【INFJ男性は本当にモテないのか】コメントから見える恋愛のギャップ</p>
+                </div>
+                <div class="member-video-item">
+                    <div class="video-media"><span class="video-num">06</span><img src="images/member-videos/サムネ_職場の人間関係.jpg" alt="INFJが職場の人間関係を改善するために実際にしたこと"></div>
+                    <p class="video-title">【コメント2,433件を分析】INFJが職場の人間関係を改善するために実際にしたこと</p>
+                </div>
+                <div class="member-video-item">
+                    <div class="video-media"><span class="video-num">07</span><img src="images/member-videos/サムネ_燃え尽きから回復した方法.jpg" alt="INFJが燃え尽きから回復した成功例"></div>
+                    <p class="video-title">【2,433件のコメントから集計】INFJが燃え尽きから回復した成功例</p>
+                </div>
             </div>
             <p class="value-note">ヒナタAIは月額1,480円ですので、差額でいうと<strong>190円</strong>ほどで、<br>いつでも相談できる相手がひとりつく計算になります。</p>
 
