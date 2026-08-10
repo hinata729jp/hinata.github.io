@@ -17,10 +17,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
         rel="stylesheet">
     <!--
-        未確定事項メモ（20260808 LP実装指示書 改訂版 準拠）
+        未確定事項メモ（2026-08-10更新）
         ・①警告バーの「3日ルール」はGAS未実装。実際にその通り動くようになるまで、このページを本番導線（LINE配布・動画概要欄）にリンクしないこと。
-        ・LINEのあいさつメッセージ側にも「無料トライアルは3日間限定」の一文を入れる想定（指示書7章①）。まだ入っていない場合、①のバーが唐突な期限通告に見えるので、あいさつメッセージ側の対応も忘れずに。
-        ・⑦ 5つの特典サムネイルは未制作のため、テキストのみで仮実装している。画像ができ次第 .perk-item にサムネ画像を追加する。
+        ・LINEのあいさつメッセージ側にも「無料トライアルは3日間限定」の一文を入れる想定。まだ入っていない場合、①のバーが唐突な期限通告に見えるので、あいさつメッセージ側の対応も忘れずに。
+        ・⑥⑦は「12大特典の合算表示をしない」という当初ルールから方針転換し、5つの特典＋7つの会員限定動画＝計12個を並べる構成にした（2026-08-10 運営者確認）。
+        ・⑦ 5つの特典サムネイルは images/tokuten/ に配置済み・反映済み（2026-08-10）。
+        ・⑦ 7つの会員限定動画：実タイトル反映済み（2026-08-10）。サムネイル画像は載せない方針（同日確定）。
+        ・YouTubeメンバーシップ価格は1,290円（運営者確認済み）。ヒナタAIとの差額は190円で統一。「200円」など丸めた数字を使わないこと。
         ・⑨⑩「使っているひとの声」は実在の声が集まるまでコメントアウトしたまま。
         ・⑫の「動画は100万回以上見てもらいました」、および引用コメント2件（「自分のことを言われているみたいでした」「初めて誰かにわかってもらえた気がしました」）は公開前に実数・実在の引用であることを確認すること。
     -->
@@ -504,12 +507,80 @@
             max-width: 640px;
             margin: 0 auto;
             display: grid;
-            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
         }
 
         .perk-item {
             background: var(--white);
             border: 2px solid var(--lavender);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .perk-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(244, 166, 192, .3)
+        }
+
+        .perk-item .perk-media {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, var(--pink-pale), var(--lavender-pale));
+        }
+
+        .perk-item .perk-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .perk-item .perk-num {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), var(--blue));
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: .78rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+        }
+
+        .perk-item .perk-title {
+            padding: 14px 16px;
+            font-size: .92rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .subsection-title {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--text);
+            margin: 0 0 18px;
+        }
+
+        /* ====== ⑦ 会員限定動画：7つのリスト ====== */
+        .member-video-list {
+            max-width: 640px;
+            margin: 0 auto;
+            display: grid;
+            gap: 14px;
+        }
+
+        .member-video-item {
+            background: var(--white);
+            border: 2px solid var(--blue);
             border-radius: 16px;
             padding: 18px 22px;
             display: flex;
@@ -520,18 +591,36 @@
             color: var(--text);
         }
 
-        .perk-item .perk-num {
+        .member-video-item .video-num {
             flex-shrink: 0;
             width: 34px;
             height: 34px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--pink), var(--blue));
+            background: var(--blue);
             color: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 900;
             font-size: .82rem;
+        }
+
+        .value-note {
+            background: var(--white);
+            border: 2px dashed var(--blue);
+            border-radius: 16px;
+            padding: 20px 24px;
+            max-width: 640px;
+            margin: 24px auto 0;
+            font-size: .92rem;
+            line-height: 1.9;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .value-note strong {
+            color: var(--blue);
+            font-weight: 900;
         }
 
         /* ====== ⑨⑩ 声グリッド（現在は不使用・コメントアウト内で定義） ====== */
@@ -796,10 +885,15 @@
                 gap: 12px;
             }
 
-            .perk-item {
+            .member-video-item {
                 padding: 14px 18px;
                 font-size: .92rem;
                 gap: 12px;
+            }
+
+            .perk-item .perk-title {
+                padding: 12px 14px;
+                font-size: .88rem;
             }
 
             .btn-line,
@@ -916,26 +1010,59 @@
         </div>
     </section>
 
-    <!-- ====== ⑥⑦ お試しを始めると、受け取れるもの（5つの特典のみ。7つのお守りは③の地の文で回収済みのためサムネ化しない） ====== -->
+    <!-- ====== ⑥⑦ 受け取れるもの（全部で12。5つは今すぐ、7つは継続で解放される会員限定動画） ====== -->
     <section class="bg-blue">
         <div class="section-inner">
-            <h2 class="section-title">お試しを始めると、<br>受け取れるもの</h2>
+            <h2 class="section-title">受け取れるもの</h2>
             <p class="section-lead">
-                お試しを始めた時点で、「特典ラウンジ」にもご招待します。
+                お試しを始めた時点で5つの特典を、<br>
+                そのまま続けていただくと、会員限定の動画も7つ。<br>
+                全部で12のコンテンツをご用意しています。
             </p>
+
+            <h3 class="subsection-title">お試しを始めると、今すぐ受け取れる5つ</h3>
             <p class="section-lead">
                 ここに置いてあるのは、たくさんのINFJの相談に乗ってきた中で私が気づいたことばかりで、<br>
                 どれもこれまで、個別相談のなかでしかお話ししてこなかったものです。
             </p>
-            <!-- サムネイルは未制作のためテキストのみで実装。用意でき次第 .perk-item にサムネ画像を追加する -->
             <div class="perk-list">
-                <div class="perk-item"><span class="perk-num">01</span><span>相談に共通する、たった1つの根っこ（限定動画）</span></div>
-                <div class="perk-item"><span class="perk-num">02</span><span>INFJ相談 観察ノート</span></div>
-                <div class="perk-item"><span class="perk-num">03</span><span>心がほどける本棚</span></div>
-                <div class="perk-item"><span class="perk-num">04</span><span>本棚を、動画でご紹介</span></div>
-                <div class="perk-item"><span class="perk-num">05</span><span>ヒナタAI 効果的な使い方集</span></div>
+                <div class="perk-item">
+                    <div class="perk-media"><span class="perk-num">01</span><img src="images/tokuten/サムネ_特典1.jpg" alt="相談に共通する、たった1つの根っこ"></div>
+                    <p class="perk-title">相談に共通する、たった1つの根っこ（限定動画）</p>
+                </div>
+                <div class="perk-item">
+                    <div class="perk-media"><span class="perk-num">02</span><img src="images/tokuten/観察ノート.png" alt="INFJ相談 観察ノート"></div>
+                    <p class="perk-title">INFJ相談 観察ノート</p>
+                </div>
+                <div class="perk-item">
+                    <div class="perk-media"><span class="perk-num">03</span><img src="images/tokuten/本棚.png" alt="心がほどける本棚"></div>
+                    <p class="perk-title">心がほどける本棚</p>
+                </div>
+                <div class="perk-item">
+                    <div class="perk-media"><span class="perk-num">04</span><img src="images/tokuten/サムネ_特典2.jpg" alt="本棚を、動画でご紹介"></div>
+                    <p class="perk-title">本棚を、動画でご紹介</p>
+                </div>
+                <div class="perk-item">
+                    <div class="perk-media"><span class="perk-num">05</span><img src="images/tokuten/多くのINFJさんと話して分かった.png" alt="ヒナタAI 効果的な使い方集"></div>
+                    <p class="perk-title">ヒナタAI 効果的な使い方集</p>
+                </div>
             </div>
             <p class="section-lead" style="margin-top:28px;">全部いっぺんに見なくても大丈夫です。疲れた夜に、ふらっと立ち寄ってもらえたら。</p>
+
+            <h3 class="subsection-title" style="margin-top:48px;">続けていただくと解放される、7つの会員限定動画</h3>
+            <p class="section-lead">
+                これは本来、YouTubeのメンバーシップにご入会いただくと、月額1,290円でご覧いただける動画です。
+            </p>
+            <div class="member-video-list">
+                <div class="member-video-item"><span class="video-num">01</span><span>INFJが生きやすくなったきっかけTOP5【79人の実体験を集計】</span></div>
+                <div class="member-video-item"><span class="video-num">02</span><span>2,433件のコメントからわかった、他のタイプから見たINFJとINFJ自身の自己イメージ</span></div>
+                <div class="member-video-item"><span class="video-num">03</span><span>【コメントデータから見るINFJ】最も多かった悩みTOP10</span></div>
+                <div class="member-video-item"><span class="video-num">04</span><span>【コメント2,433件を分析】INFJのストレス解消法5選</span></div>
+                <div class="member-video-item"><span class="video-num">05</span><span>【INFJ男性は本当にモテないのか】コメントから見える恋愛のギャップ</span></div>
+                <div class="member-video-item"><span class="video-num">06</span><span>【コメント2,433件を分析】INFJが職場の人間関係を改善するために実際にしたこと</span></div>
+                <div class="member-video-item"><span class="video-num">07</span><span>【2,433件のコメントから集計】INFJが燃え尽きから回復した成功例</span></div>
+            </div>
+            <p class="value-note">ヒナタAIは月額1,480円ですので、差額でいうと<strong>190円</strong>ほどで、<br>いつでも相談できる相手がひとりつく計算になります。</p>
 
             <!-- CTA② -->
             <div class="cta-block" style="margin-top:40px;">
